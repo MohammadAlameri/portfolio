@@ -740,7 +740,7 @@ section {
   align-items: center;
   padding: 20px;
   cursor: pointer;
-  border-bottom: 1px solid var(--faq-border);
+  border-bottom: 1px solid transparent;
   transition: all 0.3s ease;
 }
 
@@ -756,33 +756,29 @@ section {
 .faq-toggle {
   color: var(--primary-color);
   font-size: 1.1em;
-  cursor: pointer;
-  padding: 5px;
-  margin-left: 10px;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   width: 24px;
   height: 24px;
+  margin-left: 15px;
+  flex-shrink: 0;
 }
 
 .faq-answer {
-  padding: 0 20px;
   max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.5s ease-in-out, 
-              opacity 0.3s ease-in-out, 
-              padding 0.3s ease-in-out,
-              visibility 0.3s ease-in-out;
   opacity: 0;
   visibility: hidden;
+  overflow: hidden;
+  padding: 0 20px;
+  transition: max-height 0.3s ease, opacity 0.3s ease, visibility 0.3s ease, padding 0.3s ease;
 }
 
 .faq-item.active .faq-answer {
-  max-height: 1000px;
+  max-height: 500px;
   opacity: 1;
-  padding: 20px;
   visibility: visible;
+  padding: 20px;
 }
 
 .faq-answer p {

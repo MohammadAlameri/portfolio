@@ -666,7 +666,7 @@
 
         // FAQ Accordion
         document.querySelectorAll('.faq-question').forEach(question => {
-            question.addEventListener('click', function(e) {
+            question.addEventListener('click', function() {
                 const item = question.parentElement;
                 const answer = question.nextElementSibling;
                 const icon = question.querySelector('.faq-toggle i');
@@ -693,14 +693,16 @@
 
         // Make sure the plus/minus icon is properly clickable
         document.querySelectorAll('.faq-toggle').forEach(toggle => {
-            toggle.addEventListener('click', function(e) {
+            toggle.addEventListener('click', function(event) {
                 // Prevent the event from bubbling up to the parent element
-                e.stopPropagation();
+                event.stopPropagation();
                 
                 // Get the parent question element and trigger its click event
                 const question = this.closest('.faq-question');
                 if (question) {
-                    question.click();
+                    // Simulate a click on the question element
+                    const clickEvent = new Event('click', { bubbles: true });
+                    question.dispatchEvent(clickEvent);
                 }
             });
         });
