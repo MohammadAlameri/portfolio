@@ -10,6 +10,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Add Droid Arabic Kufi for Arabic text -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Droid+Arabic+Kufi:wght@400;700&display=swap" rel="stylesheet">
     <style>
         .terms-content {
             padding: 150px 0 80px;
@@ -60,7 +64,20 @@
                 font-size: 1.4em;
             }
         }
+        
+        /* Add Arabic font support */
+        [dir="rtl"] {
+            font-family: 'Droid Arabic Kufi', 'Poppins', sans-serif;
+        }
+        
+        [dir="rtl"] .terms-content ul, 
+        [dir="rtl"] .terms-content ol {
+            padding-right: 20px;
+            padding-left: 0;
+        }
     </style>
+    <!-- Language helper script for consistent language handling -->
+    <script src="js/language-helper.js"></script>
 </head>
 
 <body>
@@ -70,60 +87,57 @@
     <!-- Terms of Service Content -->
     <section class="terms-content">
         <div class="container">
-            <h1>Terms of Service</h1>
-            <p class="last-updated">Last Updated: January 1, 2025</p>
+            <h1 data-i18n="terms-title">Terms of Service</h1>
+            <p class="last-updated" data-i18n="last-updated">Last Updated: January 1, 2025</p>
             
-            <p>Welcome to Mohammad Alameri's portfolio website. Please read these Terms of Service ("Terms") carefully before using my website. By accessing or using the website, you agree to be bound by these Terms. If you disagree with any part of the Terms, you may not access the website.</p>
+            <p data-i18n="terms-intro">Welcome to Mohammad Alameri's portfolio website. By accessing and using this website, you agree to be bound by these Terms of Service. Please read these terms carefully before using this website.</p>
             
-            <h2>1. Use of the Website</h2>
-            <p>By accessing and using this website, you agree to:</p>
+            <h2 data-i18n="terms-section-1">1. Acceptance of Terms</h2>
+            <p data-i18n="terms-acceptance">By accessing and using this website, you accept and agree to be bound by these Terms of Service. If you do not agree to these terms, you should not use this website.</p>
+            
+            <h2 data-i18n="terms-section-2">2. Intellectual Property Rights</h2>
+            <p data-i18n="terms-ip-1">Unless otherwise stated, I own the intellectual property rights for all material on this website. All intellectual property rights are reserved.</p>
+            <p data-i18n="terms-ip-2">You may view and/or print pages from this website for your own personal use, subject to the restrictions set out in these terms.</p>
+            <p data-i18n="terms-ip-3">You must not:</p>
             <ul>
-                <li>Use the website in accordance with these Terms and all applicable laws and regulations</li>
-                <li>Not use the website in any way that could disable, damage, or impair the website or interfere with any other party's use of the website</li>
-                <li>Not attempt to gain unauthorized access to any portion of the website, other accounts, or any other systems connected to the website</li>
-                <li>Not use any robot, spider, or other automated means to access or scrape the website</li>
-                <li>Not introduce any viruses, Trojan horses, worms, or other material that is malicious or technologically harmful</li>
+                <li data-i18n="terms-ip-4">Republish material from this website without proper attribution</li>
+                <li data-i18n="terms-ip-5">Sell, rent, or sub-license material from this website</li>
+                <li data-i18n="terms-ip-6">Reproduce, duplicate, or copy material from this website for commercial purposes</li>
+                <li data-i18n="terms-ip-7">Redistribute content from this website, unless content is specifically made for redistribution</li>
             </ul>
             
-            <h2>2. Intellectual Property</h2>
-            <p>The website and all of its content, features, and functionality (including but not limited to all information, software, text, displays, images, video, and audio, and the design, selection, and arrangement thereof) are owned by Mohammad Alameri and are protected by international copyright, trademark, patent, trade secret, and other intellectual property or proprietary rights laws.</p>
-            <p>You may not reproduce, distribute, modify, create derivative works of, publicly display, publicly perform, republish, download, store, or transmit any of the material on the website without my prior written consent.</p>
+            <h2 data-i18n="terms-section-3">3. User Content</h2>
+            <p data-i18n="terms-user-content-1">When you submit content to this website (such as through the contact form), you grant me a non-exclusive, worldwide, royalty-free license to use, reproduce, adapt, publish, translate, and distribute your content.</p>
+            <p data-i18n="terms-user-content-2">You represent and warrant that you own or control all rights to the content you submit, and that the content does not violate these Terms of Service.</p>
             
-            <h2>3. Portfolio Projects</h2>
-            <p>The portfolio projects displayed on this website are provided for informational and demonstrative purposes only. These projects:</p>
+            <h2 data-i18n="terms-section-4">4. Limitations of Liability</h2>
+            <p data-i18n="terms-liability-1">I will not be liable for any loss or damage related to the use of this website, whether direct, indirect, or consequential, including without limitation any loss or damage related to:</p>
             <ul>
-                <li>Are subject to copyright and other intellectual property rights</li>
-                <li>May not be copied, reproduced, or used without explicit permission</li>
-                <li>Are presented as examples of my work and capabilities</li>
-                <li>May include references to third-party technologies, frameworks, or services that have their own terms of use</li>
+                <li data-i18n="terms-liability-2">Loss of data or profits arising out of the use or inability to use this website</li>
+                <li data-i18n="terms-liability-3">The performance or non-performance of this website</li>
+                <li data-i18n="terms-liability-4">Any viruses, malware, or other harmful components that may infect your computer equipment or other property as a result of your access to this website</li>
+                <li data-i18n="terms-liability-5">Third-party websites linked to from this website</li>
             </ul>
             
-            <h2>4. User Contributions</h2>
-            <p>Any content you submit through the contact form or other communication channels, including suggestions, ideas, or feedback, will be considered non-confidential and non-proprietary. By providing any such information, you grant me the right to use, reproduce, modify, perform, display, distribute, and otherwise disclose to third parties any such material.</p>
+            <h2 data-i18n="terms-section-5">5. Links to Other Websites</h2>
+            <p data-i18n="terms-links-1">This website may contain links to other websites of interest. However, once you have used these links to leave my website, I do not have any control over those third-party websites.</p>
+            <p data-i18n="terms-links-2">I am not responsible for the content, privacy policies, or practices of any third-party websites. I encourage you to read the terms and conditions and privacy policy of any website you visit.</p>
             
-            <h2>5. Links to Other Websites</h2>
-            <p>This website may contain links to third-party websites that are not owned or controlled by me. I have no control over, and assume no responsibility for, the content, privacy policies, or practices of any third-party websites. I strongly advise you to read the terms and privacy policy of any third-party website that you visit.</p>
+            <h2 data-i18n="terms-section-6">6. Website Availability</h2>
+            <p data-i18n="terms-availability-1">I make every effort to keep this website up and running smoothly. However, I take no responsibility for, and will not be liable for, the website being temporarily unavailable due to technical issues beyond my control.</p>
             
-            <h2>6. Disclaimer of Warranties</h2>
-            <p>The website is provided on an "as is" and "as available" basis, without any warranties of any kind, either express or implied. I do not warrant that the website will be uninterrupted or error-free, that defects will be corrected, or that the website or the server that makes it available are free of viruses or other harmful components.</p>
+            <h2 data-i18n="terms-section-7">7. Modifications to Terms</h2>
+            <p data-i18n="terms-modifications-1">I reserve the right to modify these Terms of Service at any time. When I do, I will revise the updated date at the top of this page.</p>
+            <p data-i18n="terms-modifications-2">Continued use of this website after any such changes shall constitute your consent to such changes. It is your responsibility to regularly check these Terms of Service for updates.</p>
             
-            <h2>7. Limitation of Liability</h2>
-            <p>To the fullest extent provided by law, I will not be liable for any loss or damage of any kind (including, without limitation, any loss of data, service interruption, computer failure, or pecuniary loss) arising out of or in connection with your use of the website, any content posted on the website, or any linked website, whether based on warranty, contract, tort, or any other legal theory.</p>
+            <h2 data-i18n="terms-section-8">8. Governing Law</h2>
+            <p data-i18n="terms-governing-law">These Terms of Service shall be governed by and construed in accordance with the laws of Yemen, without regard to its conflict of law provisions.</p>
             
-            <h2>8. Indemnification</h2>
-            <p>You agree to defend, indemnify, and hold me harmless from and against any claims, liabilities, damages, judgments, awards, losses, costs, expenses, or fees (including reasonable attorneys' fees) arising out of or relating to your violation of these Terms or your use of the website.</p>
-            
-            <h2>9. Changes to These Terms</h2>
-            <p>I reserve the right to modify or replace these Terms at any time at my sole discretion. The most current version will be posted on this page with the effective date. Your continued use of the website after any such changes constitutes your acceptance of the new Terms.</p>
-            
-            <h2>10. Governing Law</h2>
-            <p>These Terms shall be governed by and construed in accordance with the laws of Yemen, without regard to its conflict of law provisions.</p>
-            
-            <h2>11. Contact Information</h2>
-            <p>If you have any questions about these Terms, please contact me at:</p>
+            <h2 data-i18n="terms-section-9">9. Contact Information</h2>
+            <p data-i18n="terms-contact-intro">If you have any questions about these Terms of Service, please contact me at:</p>
             <ul>
-                <li>Email: mo.na.ali.alameri@gmail.com</li>
-                <li>Phone: +967 775200846</li>
+                <li data-i18n="terms-contact-email">Email: mo.na.ali.alameri@gmail.com</li>
+                <li data-i18n="terms-contact-phone">Phone: +967 775200846</li>
             </ul>
         </div>
     </section>
@@ -132,6 +146,7 @@
     <div id="footer-placeholder"></div>
 
     <!-- Scripts -->
+    <script src="js/translations.js"></script>
     <script src="js/components.js"></script>
     <script>
         // Apply the saved theme or system preference on initial load

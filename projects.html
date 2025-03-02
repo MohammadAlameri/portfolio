@@ -11,17 +11,36 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Add Droid Arabic Kufi for Arabic text -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Droid+Arabic+Kufi:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Add Arabic font support */
+        [dir="rtl"] {
+            font-family: 'Droid Arabic Kufi', 'Poppins', sans-serif;
+        }
+    </style>
+    <!-- Language helper script for consistent language handling -->
+    <script src="js/language-helper.js"></script>
 </head>
 
 <body>
+    <!-- Initialize language direction before loading components -->
+    <script>
+        // Set the language direction based on saved preference
+        const storedLanguage = localStorage.getItem('language') || 'en';
+        document.documentElement.dir = storedLanguage === 'ar' ? 'rtl' : 'ltr';
+    </script>
+    
     <!-- Header Placeholder -->
     <div id="header-placeholder"></div>
 
     <!-- Projects Hero Section -->
     <section class="projects-hero">
         <div class="container">
-            <h1>My <span>Projects</span></h1>
-            <p>A collection of mobile applications I've designed and developed with passion and precision</p>
+            <h1 data-i18n="projects-page-title">My <span>Projects</span></h1>
+            <p data-i18n="projects-page-subtitle">A collection of mobile applications I've designed and developed with passion and precision</p>
         </div>
     </section>
 
@@ -29,10 +48,10 @@
     <section class="projects-filter">
         <div class="container">
             <div class="filter-buttons">
-                <button class="filter-btn active" data-filter="all">All Projects</button>
-                <button class="filter-btn" data-filter="flutter">Flutter</button>
-                <button class="filter-btn" data-filter="ui-design">UI Design</button>
-                <button class="filter-btn" data-filter="firebase">Firebase</button>
+                <button class="filter-btn active" data-filter="all" data-i18n="filter-all">All Projects</button>
+                <button class="filter-btn" data-filter="flutter" data-i18n="filter-flutter">Flutter</button>
+                <button class="filter-btn" data-filter="ui-design" data-i18n="filter-ui">UI Design</button>
+                <button class="filter-btn" data-filter="firebase" data-i18n="filter-firebase">Firebase</button>
             </div>
         </div>
     </section>
@@ -53,8 +72,8 @@
                         </div>
                     </div>
                     <div class="mobile-project-info">
-                        <h3>Finance Tracker</h3>
-                        <p>Personal finance management app with expense tracking, budget planning, and financial insights</p>
+                        <h3 data-i18n="project-1-title">Finance Tracker</h3>
+                        <p data-i18n="project-1-desc">Personal finance management app with expense tracking, budget planning, and financial insights</p>
                         <div class="project-tags">
                             <span>Flutter</span>
                             <span>Firebase</span>
@@ -75,8 +94,8 @@
                         </div>
                     </div>
                     <div class="mobile-project-info">
-                        <h3>Fitness Companion</h3>
-                        <p>Workout planner and tracker with customizable fitness routines and progress analytics</p>
+                        <h3 data-i18n="project-2-title">Fitness Companion</h3>
+                        <p data-i18n="project-2-desc">Workout planner and tracker with customizable fitness routines and progress analytics</p>
                         <div class="project-tags">
                             <span>Flutter</span>
                             <span>UI Design</span>
@@ -97,8 +116,8 @@
                         </div>
                     </div>
                     <div class="mobile-project-info">
-                        <h3>Social Connect</h3>
-                        <p>Community platform focusing on connecting people with similar interests and hobbies</p>
+                        <h3 data-i18n="project-3-title">Social Connect</h3>
+                        <p data-i18n="project-3-desc">Community platform focusing on connecting people with similar interests and hobbies</p>
                         <div class="project-tags">
                             <span>Firebase</span>
                             <span>UI Design</span>
@@ -119,8 +138,8 @@
                         </div>
                     </div>
                     <div class="mobile-project-info">
-                        <h3>Shop Mobile</h3>
-                        <p>Feature-rich e-commerce platform with product catalog, secure payment, and order tracking</p>
+                        <h3 data-i18n="project-4-title">Shop Mobile</h3>
+                        <p data-i18n="project-4-desc">Feature-rich e-commerce platform with product catalog, secure payment, and order tracking</p>
                         <div class="project-tags">
                             <span>Flutter</span>
                             <span>Firebase</span>
@@ -141,8 +160,8 @@
                         </div>
                     </div>
                     <div class="mobile-project-info">
-                        <h3>Task Tracker Pro</h3>
-                        <p>Productivity tool for managing tasks, setting reminders, and tracking project progress</p>
+                        <h3 data-i18n="project-5-title">Task Tracker Pro</h3>
+                        <p data-i18n="project-5-desc">Productivity tool for managing tasks, setting reminders, and tracking project progress</p>
                         <div class="project-tags">
                             <span>Flutter</span>
                             <span>UI Design</span>
@@ -163,8 +182,8 @@
                         </div>
                     </div>
                     <div class="mobile-project-info">
-                        <h3>Weather Forecast</h3>
-                        <p>Real-time weather updates with location-based forecasts, alerts, and interactive maps</p>
+                        <h3 data-i18n="project-6-title">Weather Forecast</h3>
+                        <p data-i18n="project-6-desc">Real-time weather updates with location-based forecasts, alerts, and interactive maps</p>
                         <div class="project-tags">
                             <span>Flutter</span>
                             <span>API Integration</span>
@@ -190,24 +209,24 @@
                         <!-- Tags will be inserted here -->
                     </div>
                     <div class="modal-description">
-                        <h3>Description</h3>
+                        <h3 data-i18n="modal-description">Description</h3>
                         <p id="modalDescription">Project description will be loaded here.</p>
                     </div>
                     <div class="modal-features">
-                        <h3>Key Features</h3>
+                        <h3 data-i18n="modal-features">Key Features</h3>
                         <ul id="modalFeatures">
                             <!-- Features will be inserted here -->
                         </ul>
                     </div>
                     <div class="modal-technologies">
-                        <h3>Technologies Used</h3>
+                        <h3 data-i18n="modal-technologies">Technologies Used</h3>
                         <div class="tech-stack" id="modalTechnologies">
                             <!-- Tech stack will be inserted here -->
                         </div>
                     </div>
                     <div class="modal-links">
-                        <a href="#" class="main-btn" id="liveLink">View Live</a>
-                        <a href="#" class="main-btn outline" id="codeLink">View Code</a>
+                        <a href="#" class="main-btn" id="liveLink" data-i18n="view-live">View Live</a>
+                        <a href="#" class="main-btn outline" id="codeLink" data-i18n="view-code">View Code</a>
                     </div>
                 </div>
             </div>
@@ -217,9 +236,9 @@
     <!-- Contact CTA -->
     <section class="contact-cta">
         <div class="container">
-            <h2>Interested in working together?</h2>
-            <p>I'm always open to discussing new projects and opportunities.</p>
-            <a href="index.html#contact" class="main-btn">Get In Touch</a>
+            <h2 data-i18n="cta-title">Interested in working together?</h2>
+            <p data-i18n="cta-subtitle">I'm always open to discussing new projects and opportunities.</p>
+            <a href="index.html#contact" class="main-btn" data-i18n="get-in-touch">Get In Touch</a>
         </div>
     </section>
 
@@ -227,6 +246,7 @@
     <div id="footer-placeholder"></div>
 
     <!-- Scripts -->
+    <script src="js/translations.js"></script>
     <script src="js/components.js"></script>
     <script>
         // Wait for DOM to be fully loaded

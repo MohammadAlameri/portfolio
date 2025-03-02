@@ -48,6 +48,11 @@ body {
   --gray-color: #6E6E89;
   --white-color: #FFFFFF;
   --card-bg: #FFFFFF;
+  --font-primary: 'Poppins', sans-serif;
+  --font-arabic: 'Droid Arabic Kufi', sans-serif;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-bold: 700;
   --card-shadow: 0 5px 30px rgba(0, 0, 0, 0.06);
   --border-color: rgba(0, 0, 0, 0.30);
   --form-bg: #F5FCFF;
@@ -1937,10 +1942,13 @@ section {
     border-radius: 16px;
     transition: var(--transition);
     z-index: 0;
+    left: 3px; /* Position from the left */
 }
 
 .language-toggle.ar-active::after {
-    transform: translateX(100%);
+    left: auto; /* Remove left positioning */
+    right: 3px; /* Position from the right instead */
+    transform: none; /* Remove the transform that was causing issues */
 }
 
 /* Make the theme toggle responsive for RTL mode */

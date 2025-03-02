@@ -110,7 +110,7 @@ function initThemeToggle() {
 
 function initLanguageToggle() {
     const langToggle = document.getElementById('language-toggle');
-    if (langToggle && typeof applyLanguage === 'function') {
+    if (langToggle) {
         const langOptions = langToggle.querySelectorAll('.lang-option');
         const currentLang = localStorage.getItem('language') || 'en';
         
@@ -126,7 +126,13 @@ function initLanguageToggle() {
             
             option.addEventListener('click', function() {
                 const lang = this.getAttribute('data-lang');
-                applyLanguage(lang);
+                
+                // Use the forceLanguage function if available
+                if (typeof window.forceLanguage === 'function') {
+                    window.forceLanguage(lang);
+                } else if (typeof applyLanguage === 'function') {
+                    applyLanguage(lang);
+                }
             });
         });
     }
