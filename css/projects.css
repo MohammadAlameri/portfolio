@@ -1,5 +1,15 @@
 /* Projects Page Specific Styles */
 
+/* Page Transition Animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+body {
+    animation: fadeIn 0.6s ease-out forwards;
+}
+
 /* Project theme variables for light/dark mode */
 :root {
     /* Project-specific variables that align with main theme */
@@ -7,6 +17,7 @@
     --project-modal-bg: rgba(40, 41, 56, 0.85); /* Based on --secondary-color with higher opacity */
     --project-decoration-bg: rgba(94, 59, 238, 0.1); /* Based on --primary-color with low opacity */
     --project-light-text: rgba(255, 255, 255, 0.8);
+    --page-transition-duration: 0.3s;
 }
 
 /* Dark theme overrides for project-specific variables */
@@ -177,8 +188,7 @@
 .projects-filter {
     background-color: var(--body-bg);
     padding: 40px 0;
-    position: sticky;
-    top: 70px;
+    position: static;
     z-index: 100;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
     transition: background-color 0.3s ease, box-shadow 0.3s ease;

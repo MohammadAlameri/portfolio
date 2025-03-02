@@ -14,28 +14,8 @@
 </head>
 
 <body>
-    <!-- Header -->
-    <header>
-        <div class="container">
-            <a href="index.html" class="logo">
-                <span>MA</span>
-            </a>
-            <nav class="navigation">
-                <a href="index.html">Home</a>
-                <a href="index.html#services">Services</a>
-                <a href="#" class="active">Projects</a>
-                <a href="index.html#about">About</a>
-                <a href="index.html#contact">Contact</a>
-            </nav>
-            <div class="theme-toggle" id="theme-toggle">
-                <i class="fas fa-sun"></i>
-                <i class="fas fa-moon"></i>
-            </div>
-            <div class="menu-btn">
-                <i class="fas fa-bars"></i>
-            </div>
-        </div>
-    </header>
+    <!-- Header Placeholder -->
+    <div id="header-placeholder"></div>
 
     <!-- Projects Hero Section -->
     <section class="projects-hero">
@@ -243,45 +223,11 @@
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-top">
-                <div class="footer-logo">
-                    <a href="index.html" class="logo">
-                        <span>MA</span>
-                    </a>
-                </div>
-                <div class="footer-links">
-                    <div class="footer-link-group">
-                        <h4>Menu</h4>
-                        <a href="index.html">Home</a>
-                        <a href="index.html#services">Services</a>
-                        <a href="#">Projects</a>
-                        <a href="index.html#about">About</a>
-                    </div>
-                    <div class="footer-link-group">
-                        <h4>Services</h4>
-                        <a href="#">Mobile Apps</a>
-                        <a href="#">UI/UX Design</a>
-                        <a href="#">Flutter Development</a>
-                        <a href="#">Firebase Integration</a>
-                    </div>
-                </div>
-                <div class="footer-social">
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="#"><i class="fab fa-github"></i></a>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 <span>Mohammad Alameri</span>. All Rights Reserved.</p>
-            </div>
-        </div>
-    </footer>
+    <!-- Footer Placeholder -->
+    <div id="footer-placeholder"></div>
 
+    <!-- Scripts -->
+    <script src="js/components.js"></script>
     <script>
         // Wait for DOM to be fully loaded
         document.addEventListener('DOMContentLoaded', function() {
@@ -297,6 +243,28 @@
                 });
             });
 
+            // Smooth page transition for links back to index.html
+            document.querySelectorAll('a[href^="index.html"]').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Create and show the loader
+                    const loader = document.createElement('div');
+                    loader.className = 'page-transition-loader';
+                    document.body.appendChild(loader);
+                    
+                    // Start fade out
+                    setTimeout(() => {
+                        document.body.style.opacity = 0;
+                    }, 150);
+                    
+                    // Navigate after transition completes
+                    setTimeout(() => {
+                        window.location.href = this.getAttribute('href');
+                    }, 450);
+                });
+            });
+
             // Theme Toggle Functionality
             const themeToggle = document.getElementById('theme-toggle');
             
@@ -304,7 +272,7 @@
             function applyTheme() {
                 if (localStorage.getItem('theme') === 'dark' || 
                     (localStorage.getItem('theme') !== 'light' && 
-                     window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                    window.matchMedia('(prefers-color-scheme: dark)').matches)) {
                     document.body.classList.add('dark-theme');
                 } else {
                     document.body.classList.remove('dark-theme');
