@@ -666,10 +666,10 @@
 
         // FAQ Accordion
         document.querySelectorAll('.faq-question').forEach(question => {
-            question.addEventListener('click', () => {
-                const item = question.parentElement;
-                const answer = question.nextElementSibling;
-                const icon = question.querySelector('.faq-toggle i');
+            question.addEventListener('click', function() {
+                const item = this.parentElement;
+                const answer = this.nextElementSibling;
+                const icon = this.querySelector('.faq-toggle i');
                 
                 // Toggle the current question
                 item.classList.toggle('active');
@@ -677,14 +677,9 @@
                 // Update icon
                 if (item.classList.contains('active')) {
                     icon.classList.replace('fa-plus', 'fa-minus');
-                } else {
-                    icon.classList.replace('fa-minus', 'fa-plus');
-                }
-                
-                // Toggle visibility
-                if (item.classList.contains('active')) {
                     answer.style.maxHeight = answer.scrollHeight + "px";
                 } else {
+                    icon.classList.replace('fa-minus', 'fa-plus');
                     answer.style.maxHeight = "0";
                 }
             });
@@ -692,12 +687,26 @@
 
         // Make sure the plus/minus icon is properly clickable by adding a direct click handler
         document.querySelectorAll('.faq-toggle').forEach(toggle => {
-            toggle.addEventListener('click', (e) => {
-                // Prevent the default behavior
-                e.stopPropagation();
+            toggle.addEventListener('click', function(e) {
+                e.stopPropagation(); // Prevent the event from bubbling up
+                const question = this.parentElement;
                 
-                // Manually trigger the parent question's click
-                toggle.parentElement.click();
+                // Directly toggle the FAQ item instead of triggering parent click
+                const item = question.parentElement;
+                const answer = question.nextElementSibling;
+                const icon = this.querySelector('i');
+                
+                // Toggle the current question
+                item.classList.toggle('active');
+                
+                // Update icon
+                if (item.classList.contains('active')) {
+                    icon.classList.replace('fa-plus', 'fa-minus');
+                    answer.style.maxHeight = answer.scrollHeight + "px";
+                } else {
+                    icon.classList.replace('fa-minus', 'fa-plus');
+                    answer.style.maxHeight = "0";
+                }
             });
         });
 
@@ -708,9 +717,13 @@
             const prevArrow = document.querySelector('.prev-arrow');
             const nextArrow = document.querySelector('.next-arrow');
             let currentSlide = 0;
+            let slideInterval;
 
             // Function to show a specific slide
             function showSlide(n) {
+                // Clear any existing interval to prevent timing issues
+                clearInterval(slideInterval);
+                
                 // Remove active class from all slides and dots
                 slides.forEach(slide => slide.classList.remove('active'));
                 dots.forEach(dot => dot.classList.remove('active'));
@@ -723,6 +736,24 @@
                 // Add active class to current slide and dot
                 slides[currentSlide].classList.add('active');
                 dots[currentSlide].classList.add('active');
+                
+                // Restart the auto rotation
+                startSlideShow();
+            }
+
+            // Function to start automatic slideshow
+            function startSlideShow() {
+                // Set to slide every 1 second instead of 5
+                slideInterval = setInterval(() => {
+                    currentSlide++;
+                    if (currentSlide >= slides.length) currentSlide = 0;
+                    
+                    // Update slides and dots without calling showSlide to avoid clearing interval
+                    slides.forEach(slide => slide.classList.remove('active'));
+                    dots.forEach(dot => dot.classList.remove('active'));
+                    slides[currentSlide].classList.add('active');
+                    dots[currentSlide].classList.add('active');
+                }, 1000);
             }
 
             // Event listeners for dot navigation
@@ -730,17 +761,33 @@
                 dot.addEventListener('click', () => showSlide(index));
             });
 
-            // Event listeners for arrow navigation
+            // Event listeners for arrow navigation - ensure these work properly
             if (prevArrow) {
-                prevArrow.addEventListener('click', () => showSlide(currentSlide - 1));
+                prevArrow.addEventListener('click', function() {
+                    showSlide(currentSlide - 1);
+                });
             }
             
             if (nextArrow) {
-                nextArrow.addEventListener('click', () => showSlide(currentSlide + 1));
+                nextArrow.addEventListener('click', function() {
+                    showSlide(currentSlide + 1);
+                });
             }
 
-            // Auto rotate slides every 5 seconds
-            setInterval(() => showSlide(currentSlide + 1), 5000);
+            // Initialize the slideshow
+            startSlideShow();
+            
+            // Add hover pause functionality
+            const testimonialSection = document.querySelector('.client-testimonials');
+            if (testimonialSection) {
+                testimonialSection.addEventListener('mouseenter', function() {
+                    clearInterval(slideInterval);
+                });
+                
+                testimonialSection.addEventListener('mouseleave', function() {
+                    startSlideShow();
+                });
+            }
         });
         
         // Contact Form Submission Handler
