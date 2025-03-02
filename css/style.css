@@ -741,7 +741,7 @@ section {
   padding: 20px;
   cursor: pointer;
   border-bottom: 1px solid var(--faq-border);
-  transition: var(--transition);
+  transition: all 0.3s ease;
 }
 
 .faq-question h3 {
@@ -756,24 +756,32 @@ section {
 .faq-toggle {
   color: var(--primary-color);
   font-size: 1.1em;
-  transition: color 0.3s ease;
   cursor: pointer;
   padding: 5px;
+  margin-left: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
 }
 
 .faq-answer {
   padding: 0 20px;
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.5s ease-in-out, opacity 0.3s ease-in-out, padding 0.3s ease-in-out;
+  transition: max-height 0.5s ease-in-out, 
+              opacity 0.3s ease-in-out, 
+              padding 0.3s ease-in-out,
+              visibility 0.3s ease-in-out;
   opacity: 0;
   visibility: hidden;
 }
 
 .faq-item.active .faq-answer {
-  max-height: 1000px; /* A large value to accommodate any answer length */
+  max-height: 1000px;
   opacity: 1;
-  padding: 10px 20px 20px;
+  padding: 20px;
   visibility: visible;
 }
 
@@ -802,6 +810,7 @@ section {
   max-width: 800px;
   margin: 50px auto 30px;
   height: 400px;
+  overflow: hidden;
 }
 
 .testimonial-slide {
@@ -810,15 +819,17 @@ section {
   left: 0;
   width: 100%;
   opacity: 0;
-  transform: scale(0.9);
-  transition: all 0.5s ease;
+  transform: translateX(100px) scale(0.95);
+  transition: all 0.5s ease-in-out;
   visibility: hidden;
+  z-index: 1;
 }
 
 .testimonial-slide.active {
   opacity: 1;
-  transform: scale(1);
+  transform: translateX(0) scale(1);
   visibility: visible;
+  z-index: 2;
 }
 
 .client-testimonial {
@@ -827,8 +838,7 @@ section {
   border-radius: 15px;
   box-shadow: var(--card-shadow);
   text-align: center;
-  transition: background-color 0.3s ease;
-  border: 1px solid var(--border-color);
+  transition: all 0.5s ease;
 }
 
 .client-image {
@@ -895,6 +905,9 @@ section {
   flex-direction: column;
   align-items: center;
   gap: 20px;
+  margin-top: 20px;
+  position: relative;
+  z-index: 10;
 }
 
 .testimonial-dots {
@@ -908,7 +921,7 @@ section {
   border-radius: 50%;
   background-color: var(--primary-light);
   cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .dot.active, .dot:hover {
@@ -922,23 +935,31 @@ section {
 }
 
 .arrow {
-  width: 40px;
-  height: 40px;
+  background-color: var(--bg-color-secondary);
+  color: var(--text-color);
+  width: 35px;
+  height: 35px;
   border-radius: 50%;
-  background-color: var(--primary-light);
-  color: var(--primary-color);
-  border: none;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
+  border: none;
   cursor: pointer;
+  margin: 0 5px;
   transition: all 0.3s ease;
+  z-index: 5;
+  position: relative;
 }
 
 .arrow:hover {
-  background-color: var(--primary-color);
-  color: var(--white-color);
   transform: translateY(-3px);
+  opacity: 0.9;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Additional testimonial arrow styles for better visibility */
+.prev-arrow, .next-arrow {
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
 }
 
 /* Testimonials */
@@ -1990,5 +2011,5 @@ section {
     .lang-option {
         padding: 4px 6px;
         font-size: 0.75rem;
-    }
+  }
 }

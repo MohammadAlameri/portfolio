@@ -691,88 +691,79 @@
             });
         });
 
-        // Add separate click handler for the plus/minus icon
+        // Make sure the plus/minus icon is properly clickable
         document.querySelectorAll('.faq-toggle').forEach(toggle => {
             toggle.addEventListener('click', function(e) {
                 // Prevent the event from bubbling up to the parent element
                 e.stopPropagation();
                 
-                // Trigger a click on the parent question element
-                this.closest('.faq-question').click();
+                // Get the parent question element and trigger its click event
+                const question = this.closest('.faq-question');
+                if (question) {
+                    question.click();
+                }
             });
         });
 
         // Client Testimonials Carousel
-        document.addEventListener('DOMContentLoaded', function() {
-            const slides = document.querySelectorAll('.testimonial-slide');
-            const dots = document.querySelectorAll('.dot');
-            const prevArrow = document.querySelector('.prev-arrow');
-            const nextArrow = document.querySelector('.next-arrow');
-            let currentSlide = 0;
-            let autoRotateInterval;
+        const slides = document.querySelectorAll('.testimonial-slide');
+        const dots = document.querySelectorAll('.dot');
+        const prevArrow = document.querySelector('.prev-arrow');
+        const nextArrow = document.querySelector('.next-arrow');
+        let currentSlide = 0;
+        let slideInterval;
 
-            // Function to show a specific slide
-            function showSlide(n) {
-                // Remove active class from all slides and dots
-                slides.forEach(slide => slide.classList.remove('active'));
-                dots.forEach(dot => dot.classList.remove('active'));
-                
-                // Set current slide and handle wrapping
-                currentSlide = n;
-                if (currentSlide >= slides.length) currentSlide = 0;
-                if (currentSlide < 0) currentSlide = slides.length - 1;
-                
-                // Add active class to current slide and dot
-                slides[currentSlide].classList.add('active');
-                dots[currentSlide].classList.add('active');
-            }
-
-            // Reset timer when manually changing slides
-            function resetTimer() {
-                if (autoRotateInterval) {
-                    clearInterval(autoRotateInterval);
-                }
-                startAutoRotate();
-            }
-
-            // Start auto rotation
-            function startAutoRotate() {
-                // Clear any existing interval first
-                if (autoRotateInterval) {
-                    clearInterval(autoRotateInterval);
-                }
-                autoRotateInterval = setInterval(() => {
-                    showSlide(currentSlide + 1);
-                }, 5000);
-            }
-
-            // Event listeners for dot navigation
-            dots.forEach((dot, index) => {
-                dot.addEventListener('click', () => {
-                    showSlide(index);
-                    resetTimer();
-                });
-            });
-
-            // Event listeners for arrow navigation
-            if (prevArrow !== null) {
-                prevArrow.addEventListener('click', function() {
-                    showSlide(currentSlide - 1);
-                    resetTimer();
-                });
+        // Function to show a specific slide
+        function showSlide(n) {
+            // Clear any existing interval to prevent timing issues
+            if (slideInterval) {
+                clearInterval(slideInterval);
             }
             
-            if (nextArrow !== null) {
-                nextArrow.addEventListener('click', function() {
-                    showSlide(currentSlide + 1);
-                    resetTimer();
-                });
-            }
+            // Remove active class from all slides and dots
+            slides.forEach(slide => slide.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('active'));
+            
+            // Set current slide and handle wrapping
+            currentSlide = n;
+            if (currentSlide >= slides.length) currentSlide = 0;
+            if (currentSlide < 0) currentSlide = slides.length - 1;
+            
+            // Add active class to current slide and dot
+            slides[currentSlide].classList.add('active');
+            dots[currentSlide].classList.add('active');
+            
+            // Restart the auto rotation
+            startSlideShow();
+        }
 
-            // Initialize the carousel
-            showSlide(0);
-            startAutoRotate();
+        // Function to start automatic slideshow
+        function startSlideShow() {
+            slideInterval = setInterval(() => {
+                showSlide(currentSlide + 1);
+            }, 5000);
+        }
+
+        // Event listeners for dot navigation
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => showSlide(index));
         });
+
+        // Event listeners for arrow navigation
+        if (prevArrow) {
+            prevArrow.addEventListener('click', () => {
+                showSlide(currentSlide - 1);
+            });
+        }
+        
+        if (nextArrow) {
+            nextArrow.addEventListener('click', () => {
+                showSlide(currentSlide + 1);
+            });
+        }
+
+        // Initialize the slideshow
+        startSlideShow();
         
         // Contact Form Submission Handler
         document.addEventListener('DOMContentLoaded', function() {
