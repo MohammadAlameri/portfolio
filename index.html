@@ -10,6 +10,16 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Add Droid Arabic Kufi for Arabic text -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Droid+Arabic+Kufi:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Add Arabic font support */
+        [dir="rtl"] {
+            font-family: 'Droid Arabic Kufi', 'Poppins', sans-serif;
+        }
+    </style>
 </head>
 
 <body>
@@ -20,17 +30,17 @@
     <section class="hero" id="home">
         <div class="container">
             <div class="hero-content">
-                <h1>Mohammad<br>Alameri</h1>
-                <p class="subtitle">Software Engineer | Flutter Developer</p>
+                <h1 data-i18n="hero-title">Mohammad<br>Alameri</h1>
+                <p class="subtitle" data-i18n="hero-subtitle">Software Engineer | Flutter Developer</p>
                 <div class="hero-stats">
                     <div class="stat-item">
-                        <h3>10+ Projects</h3>
+                        <h3 data-i18n="hero-projects">10+ Projects</h3>
                     </div>
                     <div class="stat-item">
-                        <h3>2+ Years Experience</h3>
+                        <h3 data-i18n="hero-experience">2+ Years Experience</h3>
                     </div>
                     <div class="stat-item">
-                        <h3>Flutter Developer</h3>
+                        <h3 data-i18n="hero-developer">Flutter Developer</h3>
                     </div>
                 </div>
             </div>
@@ -45,35 +55,35 @@
     <!-- Services Section -->
     <section class="services" id="services">
         <div class="container">
-            <h2 class="section-title">My Awesome <span>Services</span></h2>
+            <h2 class="section-title" data-i18n="services-title">My Awesome <span>Services</span></h2>
             <div class="service-grid">
                 <div class="service-card">
                     <div class="service-icon">
                         <i class="fas fa-palette"></i>
                     </div>
-                    <h3>Design</h3>
-                    <p>Creating beautiful and intuitive user interfaces with a focus on usability and aesthetics.</p>
+                    <h3 data-i18n="service-design">Design</h3>
+                    <p data-i18n="service-design-description">Creating beautiful and intuitive user interfaces with a focus on usability and aesthetics.</p>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">
                         <i class="fas fa-code"></i>
                     </div>
-                    <h3>Development</h3>
-                    <p>Building responsive and optimized web applications using modern technologies and frameworks.</p>
+                    <h3 data-i18n="service-development">Development</h3>
+                    <p data-i18n="service-development-description">Building responsive and optimized web applications using modern technologies and frameworks.</p>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">
                         <i class="fas fa-mobile-alt"></i>
                     </div>
-                    <h3>Mobile</h3>
-                    <p>Developing user-friendly mobile applications with intuitive interfaces and smooth interactions.</p>
+                    <h3 data-i18n="service-mobile">Mobile</h3>
+                    <p data-i18n="service-mobile-description">Developing user-friendly mobile applications with intuitive interfaces and smooth interactions.</p>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">
                         <i class="fas fa-search"></i>
                     </div>
-                    <h3>SEO</h3>
-                    <p>Optimizing websites for search engines to improve visibility and drive organic traffic.</p>
+                    <h3 data-i18n="service-seo">SEO</h3>
+                    <p data-i18n="service-seo-description">Optimizing websites for search engines to improve visibility and drive organic traffic.</p>
                 </div>
             </div>
         </div>
@@ -87,7 +97,7 @@
                     <img src="images/19362653-Photoroom.png" alt="Developer Illustration">
                 </div>
                 <div class="skills-list">
-                    <h2 class="section-title">My Programming <span>Skills</span></h2>
+                    <h2 class="section-title" data-i18n="skills-title">My Programming <span>Skills</span></h2>
                     <div class="skill-item">
                         <div class="skill-info">
                             <p>Flutter</p>
@@ -141,8 +151,8 @@
     <!-- Why Hire Me Section -->
     <section class="why-hire-section">
         <div class="container">
-            <h2 class="section-title">Why Hire <span>Me</span></h2>
-            <p class="section-subtitle">These are some of the reasons why clients love my work and why you should hire me too</p>
+            <h2 class="section-title" data-i18n="why-hire-title">Why Hire <span>Me</span></h2>
+            <p class="section-subtitle" data-i18n="why-hire-subtitle">These are some of the reasons why clients love my work and why you should hire me too</p>
             
             <div class="reasons-grid">
                 <div class="reason-card">
@@ -189,7 +199,7 @@
                 </div>
             </div>
             <div class="center-btn">
-                <a href="#contact" class="main-btn">Hire Me Now</a>
+                <a href="#contact" class="main-btn" data-i18n="hire-me-btn">Hire Me Now</a>
             </div>
         </div>
     </section>
@@ -197,7 +207,7 @@
     <!-- Projects Section -->
     <section class="projects-section" id="projects">
         <div class="container">
-            <h2 class="section-title">Recent <span>Projects</span></h2>
+            <h2 class="section-title" data-i18n="projects-title">Recent <span>Projects</span></h2>
             <div class="project-grid">
                 <div class="project-card">
                     <div class="project-img">
@@ -243,7 +253,7 @@
                 </div>
             </div>
             <div class="center-btn">
-                <a href="projects.html" class="main-btn">View All Projects</a>
+                <a href="projects.html" class="main-btn" data-i18n="view-all-btn">View All Projects</a>
             </div>
         </div>
     </section>
@@ -541,7 +551,7 @@
                             <i class="fas fa-map-marker-alt"></i>
                         </div>
                         <div class="contact-details">
-                            <h3>Location</h3>
+                            <h3 data-i18n="contact-location">Location</h3>
                             <p>Yemen</p>
                         </div>
                         <div class="social-links">
@@ -557,7 +567,7 @@
                             <i class="fas fa-phone"></i>
                         </div>
                         <div class="contact-details">
-                            <h3>Phone</h3>
+                            <h3 data-i18n="contact-phone">Phone</h3>
                             <p>+967 775200846</p>
                         </div>
                         <div class="contact-times">
@@ -567,7 +577,7 @@
                     </div>
                 </div>
                 <div class="contact-form-section">
-                    <h3>Let's Talk</h3>
+                    <h3 data-i18n="contact-lets-talk">Let's Talk</h3>
                     <form class="contact-form" action="https://formsubmit.co/mo.na.ali.alameri@gmail.com" method="POST" target="_blank">
                         <div class="form-group">
                             <input type="text" name="name" placeholder="Your Name" required>
@@ -584,7 +594,7 @@
                         <input type="hidden" name="_template" value="table">
                         <input type="hidden" name="_autoresponse" value="Thank you for contacting Mohammad Alameri. I will get back to you as soon as possible.">
                         <input type="hidden" name="_format" value="plain">
-                        <button type="submit" class="submit-btn">Send</button>
+                        <button type="submit" class="submit-btn" data-i18n="contact-send">Send</button>
                     </form>
                 </div>
             </div>
@@ -595,6 +605,7 @@
     <div id="footer-placeholder"></div>
 
     <!-- Scripts -->
+    <script src="js/translations.js"></script>
     <script src="js/components.js"></script>
     <script>
         // Mobile menu toggle

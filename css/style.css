@@ -64,6 +64,13 @@ body {
   --tech-icon-bg: #ECF4FF;
   --tech-icon-color: #5E3BEE;
   --blur-color: rgba(94, 59, 238, 0.15);
+  --text-color: #282938;
+  --light-gray: #f2f2f2;
+  --bg-color: #ffffff;
+  --transition: all 0.3s ease;
+  --text-direction: ltr;
+  --align-start: left;
+  --align-end: right;
 }
 
 .dark-theme {
@@ -93,14 +100,21 @@ body {
   --tech-icon-bg: #383850;
   --tech-icon-color: #7B5CF0;
   --blur-color: rgba(94, 59, 238, 0.2);
+  --text-color: #ffffff;
+  --light-gray: #2d2d2d;
+  --bg-color: #121212;
+  --card-bg: #1e1e1e;
+  --card-shadow: rgba(0, 0, 0, 0.4);
 }
 
 body {
   font-family: 'Poppins', sans-serif;
   overflow-x: hidden;
-  color: var(--secondary-color);
-  background-color: var(--body-bg);
-  transition: background-color 0.3s ease, color 0.3s ease;
+  color: var(--text-color);
+  background-color: var(--bg-color);
+  transition: var(--transition);
+  direction: var(--text-direction);
+  text-align: start;
 }
 
 .container {
@@ -1859,4 +1873,98 @@ section {
   .thank-you-content p {
     font-size: 1em;
   }
+}
+
+/* Basic RTL Support */
+[dir="rtl"] {
+  --text-direction: rtl;
+  --align-start: right;
+  --align-end: left;
+}
+
+/* RTL Specific Styling */
+[dir="rtl"] .hero-content {
+  text-align: right;
+}
+
+[dir="rtl"] .skill-info {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .footer-legal {
+  flex-direction: row-reverse;
+}
+
+/* Header Controls */
+.header-controls {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Language Toggle Styles */
+.language-toggle {
+    display: flex;
+    align-items: center;
+    background-color: var(--light-gray);
+    border-radius: 20px;
+    padding: 3px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.lang-option {
+    padding: 5px 8px;
+    border-radius: 16px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    z-index: 1;
+    transition: var(--transition);
+}
+
+[data-lang="en"].active,
+[data-lang="ar"].active {
+    color: white;
+}
+
+.language-toggle::after {
+    content: '';
+    position: absolute;
+    width: 50%;
+    height: 85%;
+    background-color: var(--secondary-color);
+    border-radius: 16px;
+    transition: var(--transition);
+    z-index: 0;
+}
+
+.language-toggle.ar-active::after {
+    transform: translateX(100%);
+}
+
+/* Make the theme toggle responsive for RTL mode */
+[dir="rtl"] .theme-toggle .fa-sun {
+    margin-right: 0;
+    margin-left: auto;
+}
+
+[dir="rtl"] .theme-toggle .fa-moon {
+    margin-left: 0;
+    margin-right: auto;
+}
+
+@media (max-width: 768px) {
+    .header-controls {
+        gap: 10px;
+    }
+    
+    .language-toggle {
+        padding: 2px;
+    }
+    
+    .lang-option {
+        padding: 4px 6px;
+        font-size: 0.75rem;
+    }
 }

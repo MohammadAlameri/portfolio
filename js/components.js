@@ -4,86 +4,134 @@
  */
 
 document.addEventListener('DOMContentLoaded', function() {
-    // Load the header
+    // Load Header
+    loadHeader();
+    
+    // Load Footer
+    loadFooter();
+    
+    // Apply theme based on localStorage
+    applyTheme();
+    
+    // Set flag to indicate components.js has loaded
+    window.componentsLoaded = true;
+});
+
+function loadHeader() {
     const headerPlaceholder = document.getElementById('header-placeholder');
     if (headerPlaceholder) {
         fetch('components/header.html')
             .then(response => response.text())
-            .then(data => {
-                headerPlaceholder.innerHTML = data;
+            .then(html => {
+                headerPlaceholder.innerHTML = html;
                 
-                // Set active navigation link based on current page
-                const currentPage = window.location.pathname.split('/').pop();
+                // Initialize mobile menu after header is loaded
+                initMobileMenu();
                 
-                if (currentPage === 'index.html' || currentPage === '' || currentPage === '/') {
-                    document.getElementById('nav-home').classList.add('active');
-                } else if (currentPage === 'projects.html') {
-                    document.getElementById('nav-projects').classList.add('active');
-                } else if (currentPage === 'privacy-policy.html') {
-                    // No active link for policy pages
-                } else if (currentPage === 'terms-of-service.html') {
-                    // No active link for terms page
-                }
+                // Initialize theme toggle after header is loaded
+                initThemeToggle();
                 
-                // Initialize mobile menu toggle
-                const menuBtn = document.querySelector('.menu-btn');
-                if (menuBtn) {
-                    menuBtn.addEventListener('click', function() {
-                        document.querySelector('.navigation').classList.toggle('active');
-                    });
-                }
+                // Initialize language toggle after header is loaded
+                initLanguageToggle();
                 
-                // Close menu when clicking a navigation link on mobile
-                const navLinks = document.querySelectorAll('.navigation a');
-                if (navLinks) {
-                    navLinks.forEach(link => {
-                        link.addEventListener('click', function() {
-                            document.querySelector('.navigation').classList.remove('active');
-                        });
-                    });
-                }
-                
-                // Initialize theme toggle
-                const themeToggle = document.getElementById('theme-toggle');
-                if (themeToggle) {
-                    // Apply the saved theme or system preference on initial load
-                    applyTheme();
-                    
-                    // Toggle theme when clicking the theme toggle button
-                    themeToggle.addEventListener('click', function() {
-                        document.body.classList.toggle('dark-theme');
-                        
-                        // Save theme preference to localStorage
-                        if (document.body.classList.contains('dark-theme')) {
-                            localStorage.setItem('theme', 'dark');
-                        } else {
-                            localStorage.setItem('theme', 'light');
-                        }
-                    });
-                }
+                // Set active navigation link
+                setActiveNavLink();
             })
             .catch(error => {
                 console.error('Error loading header:', error);
-                headerPlaceholder.innerHTML = '<p>Error loading header</p>';
             });
     }
-    
-    // Load the footer
+}
+
+function loadFooter() {
     const footerPlaceholder = document.getElementById('footer-placeholder');
     if (footerPlaceholder) {
         fetch('components/footer.html')
             .then(response => response.text())
-            .then(data => {
-                footerPlaceholder.innerHTML = data;
+            .then(html => {
+                footerPlaceholder.innerHTML = html;
+                
+                // Apply any footer-specific initializations here
+                // For example, adding event listeners to footer elements
             })
             .catch(error => {
                 console.error('Error loading footer:', error);
-                footerPlaceholder.innerHTML = '<p>Error loading footer</p>';
             });
     }
-});
+}
 
-// Apply theme function
+function initMobileMenu() {
+    const menuBtn = document.querySelector('.menu-btn');
+    if (menuBtn) {
+        menuBtn.addEventListener('click', function() {
+            document.querySelector('.navigation').classList.toggle('active');
+        });
+    }
+    
+    const navLinks = document.querySelectorAll('.navigation a');
+    navLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            document.querySelector('.navigation').classList.remove('active');
+        });
+    });
+}
+
+function setActiveNavLink() {
+    const currentPage = window.location.pathname.split('/').pop();
+    const navLinks = document.querySelectorAll('.navigation a');
+    
+    navLinks.forEach(link => {
+        const linkHref = link.getAttribute('href').split('/').pop();
+        
+        if (currentPage === linkHref || (currentPage === '' && linkHref === 'index.html')) {
+            link.classList.add('active');
+        } else if (currentPage === 'index.html' && linkHref === 'index.html') {
+            link.classList.add('active');
+        } else if (link.getAttribute('href').includes('#') && window.location.href.includes(link.getAttribute('href'))) {
+            link.classList.add('active');
+        }
+    });
+}
+
+function initThemeToggle() {
+    const themeToggle = document.getElementById('theme-toggle');
+    if (themeToggle) {
+        themeToggle.addEventListener('click', function() {
+            document.body.classList.toggle('dark-theme');
+            
+            if (document.body.classList.contains('dark-theme')) {
+                localStorage.setItem('theme', 'dark');
+            } else {
+                localStorage.setItem('theme', 'light');
+            }
+        });
+    }
+}
+
+function initLanguageToggle() {
+    const langToggle = document.getElementById('language-toggle');
+    if (langToggle && typeof applyLanguage === 'function') {
+        const langOptions = langToggle.querySelectorAll('.lang-option');
+        const currentLang = localStorage.getItem('language') || 'en';
+        
+        // Set initial state
+        if (currentLang === 'ar') {
+            langToggle.classList.add('ar-active');
+        }
+        
+        langOptions.forEach(option => {
+            if (option.getAttribute('data-lang') === currentLang) {
+                option.classList.add('active');
+            }
+            
+            option.addEventListener('click', function() {
+                const lang = this.getAttribute('data-lang');
+                applyLanguage(lang);
+            });
+        });
+    }
+}
+
 function applyTheme() {
     if (localStorage.getItem('theme') === 'dark' || 
         (localStorage.getItem('theme') !== 'light' && 
