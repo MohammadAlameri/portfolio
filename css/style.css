@@ -735,11 +735,13 @@ section {
 }
 
 .faq-question {
-  padding: 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 20px;
   cursor: pointer;
+  border-bottom: 1px solid var(--faq-border);
+  transition: var(--transition);
 }
 
 .faq-question h3 {
@@ -747,32 +749,40 @@ section {
   font-weight: 600;
   color: var(--secondary-color);
   transition: color 0.3s ease;
+  margin: 0;
+  flex: 1;
 }
 
 .faq-toggle {
   color: var(--primary-color);
   font-size: 1.1em;
   transition: color 0.3s ease;
+  cursor: pointer;
+  padding: 5px;
 }
 
 .faq-answer {
   padding: 0 20px;
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.4s ease-in-out;
-  opacity: 0.7;
+  transition: max-height 0.5s ease-in-out, opacity 0.3s ease-in-out, padding 0.3s ease-in-out;
+  opacity: 0;
+  visibility: hidden;
 }
 
 .faq-item.active .faq-answer {
   max-height: 1000px; /* A large value to accommodate any answer length */
   opacity: 1;
+  padding: 10px 20px 20px;
+  visibility: visible;
 }
 
 .faq-answer p {
-  padding-bottom: 20px;
+  padding-bottom: 10px;
   line-height: 1.6;
   color: var(--gray-color);
   transition: color 0.3s ease;
+  margin: 0;
 }
 
 .faq-item.active {

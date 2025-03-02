@@ -666,7 +666,7 @@
 
         // FAQ Accordion
         document.querySelectorAll('.faq-question').forEach(question => {
-            question.addEventListener('click', () => {
+            question.addEventListener('click', function(e) {
                 const item = question.parentElement;
                 const answer = question.nextElementSibling;
                 const icon = question.querySelector('.faq-toggle i');
@@ -691,6 +691,17 @@
             });
         });
 
+        // Add separate click handler for the plus/minus icon
+        document.querySelectorAll('.faq-toggle').forEach(toggle => {
+            toggle.addEventListener('click', function(e) {
+                // Prevent the event from bubbling up to the parent element
+                e.stopPropagation();
+                
+                // Trigger a click on the parent question element
+                this.closest('.faq-question').click();
+            });
+        });
+
         // Client Testimonials Carousel
         document.addEventListener('DOMContentLoaded', function() {
             const slides = document.querySelectorAll('.testimonial-slide');
@@ -698,6 +709,7 @@
             const prevArrow = document.querySelector('.prev-arrow');
             const nextArrow = document.querySelector('.next-arrow');
             let currentSlide = 0;
+            let autoRotateInterval;
 
             // Function to show a specific slide
             function showSlide(n) {
@@ -715,21 +727,51 @@
                 dots[currentSlide].classList.add('active');
             }
 
+            // Reset timer when manually changing slides
+            function resetTimer() {
+                if (autoRotateInterval) {
+                    clearInterval(autoRotateInterval);
+                }
+                startAutoRotate();
+            }
+
+            // Start auto rotation
+            function startAutoRotate() {
+                // Clear any existing interval first
+                if (autoRotateInterval) {
+                    clearInterval(autoRotateInterval);
+                }
+                autoRotateInterval = setInterval(() => {
+                    showSlide(currentSlide + 1);
+                }, 5000);
+            }
+
             // Event listeners for dot navigation
             dots.forEach((dot, index) => {
-                dot.addEventListener('click', () => showSlide(index));
+                dot.addEventListener('click', () => {
+                    showSlide(index);
+                    resetTimer();
+                });
             });
 
             // Event listeners for arrow navigation
-            if (prevArrow) {
-                prevArrow.addEventListener('click', () => showSlide(currentSlide - 1));
+            if (prevArrow !== null) {
+                prevArrow.addEventListener('click', function() {
+                    showSlide(currentSlide - 1);
+                    resetTimer();
+                });
             }
-            if (nextArrow) {
-                nextArrow.addEventListener('click', () => showSlide(currentSlide + 1));
+            
+            if (nextArrow !== null) {
+                nextArrow.addEventListener('click', function() {
+                    showSlide(currentSlide + 1);
+                    resetTimer();
+                });
             }
 
-            // Auto rotate slides every 5 seconds
-            setInterval(() => showSlide(currentSlide + 1), 5000);
+            // Initialize the carousel
+            showSlide(0);
+            startAutoRotate();
         });
         
         // Contact Form Submission Handler
