@@ -1780,3 +1780,83 @@ section {
     font-size: 1.1em;
   }
 }
+
+/* Thank You Page Styles */
+.thank-you-section {
+  padding: 180px 0 120px;
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.thank-you-content {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: var(--card-bg);
+  padding: 60px 40px;
+  border-radius: 15px;
+  box-shadow: var(--card-shadow);
+  border: 1px solid var(--border-color);
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.thank-you-icon {
+  font-size: 5em;
+  color: var(--primary-color);
+  margin-bottom: 20px;
+}
+
+.thank-you-content h1 {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  color: var(--secondary-color);
+}
+
+.thank-you-content p {
+  font-size: 1.1em;
+  color: var(--gray-color);
+  margin-bottom: 30px;
+  line-height: 1.6;
+}
+
+.thank-you-content .main-btn {
+  margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+  .thank-you-content {
+    padding: 40px 25px;
+  }
+  
+  .thank-you-icon {
+    font-size: 4em;
+  }
+  
+  .thank-you-content h1 {
+    font-size: 2em;
+  }
+}
+
+@media (max-width: 480px) {
+  .thank-you-section {
+    padding: 150px 0 80px;
+  }
+  
+  .thank-you-content {
+    padding: 30px 20px;
+  }
+  
+  .thank-you-icon {
+    font-size: 3em;
+  }
+  
+  .thank-you-content h1 {
+    font-size: 1.8em;
+  }
+  
+  .thank-you-content p {
+    font-size: 1em;
+  }
+}

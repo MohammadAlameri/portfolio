@@ -568,16 +568,19 @@
                 </div>
                 <div class="contact-form-section">
                     <h3>Let's Talk</h3>
-                    <form class="contact-form" action="mailto:mo.na.ali.alameri@gmail.com" method="post" enctype="text/plain">
+                    <form class="contact-form" action="https://formsubmit.co/mo.na.ali.alameri@gmail.com" method="POST">
                         <div class="form-group">
-                            <input type="text" placeholder="Your Name" required>
+                            <input type="text" name="name" placeholder="Your Name" required>
                         </div>
                         <div class="form-group">
-                            <input type="email" placeholder="Your Email" required>
+                            <input type="email" name="email" placeholder="Your Email" required>
                         </div>
                         <div class="form-group">
-                            <textarea placeholder="Your Message" required></textarea>
+                            <textarea name="message" placeholder="Your Message" required></textarea>
                         </div>
+                        <input type="hidden" name="_subject" value="New contact request from portfolio website">
+                        <input type="hidden" name="_captcha" value="false">
+                        <input type="hidden" name="_next" value="thank-you.html">
                         <button type="submit" class="submit-btn">Send</button>
                     </form>
                 </div>
