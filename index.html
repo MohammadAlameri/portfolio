@@ -214,8 +214,8 @@
                         <img src="https://placehold.co/600x400" alt="Project 1">
                     </div>
                     <div class="project-info">
-                        <h3>Booking Bus Ticket</h3>
-                        <p>A fully responsive e-commerce platform with modern UI and secure payment integration</p>
+                        <h3 data-i18n="project-1-title">Booking Bus Ticket</h3>
+                        <p data-i18n="project-1-desc">A fully responsive e-commerce platform with modern UI and secure payment integration</p>
                         <div class="project-tags">
                             <span>Flutter</span>
                             <span>BloC</span>
@@ -228,8 +228,8 @@
                         <img src="https://placehold.co/600x400" alt="Project 2">
                     </div>
                     <div class="project-info">
-                        <h3>Medical Appointment Booking</h3>
-                        <p>Customizable portfolio template for creative professionals with dark/light mode</p>
+                        <h3 data-i18n="project-2-title">Medical Appointment Booking</h3>
+                        <p data-i18n="project-2-desc">Customizable portfolio template for creative professionals with dark/light mode</p>
                         <div class="project-tags">
                             <span>Flutter</span>
                             <span>Secure</span>
@@ -242,8 +242,8 @@
                         <img src="https://placehold.co/600x400" alt="Project 3">
                     </div>
                     <div class="project-info">
-                        <h3>Water Billing System</h3>
-                        <p>A productivity application with task tracking, reminders, and team collaboration features</p>
+                        <h3 data-i18n="project-3-title">Water Billing System</h3>
+                        <p data-i18n="project-3-desc">A productivity application with task tracking, reminders, and team collaboration features</p>
                         <div class="project-tags">
                             <span>Flutter</span>
                             <span>Firebase</span>
@@ -681,11 +681,12 @@
                     icon.classList.replace('fa-minus', 'fa-plus');
                 }
                 
-                // Toggle visibility
+                // Set max-height for animation
                 if (item.classList.contains('active')) {
+                    // Set a height that will definitely be taller than the content
                     answer.style.maxHeight = answer.scrollHeight + "px";
                 } else {
-                    answer.style.maxHeight = 0;
+                    answer.style.maxHeight = "0px";
                 }
             });
         });
@@ -720,8 +721,12 @@
             });
 
             // Event listeners for arrow navigation
-            prevArrow.addEventListener('click', () => showSlide(currentSlide - 1));
-            nextArrow.addEventListener('click', () => showSlide(currentSlide + 1));
+            if (prevArrow) {
+                prevArrow.addEventListener('click', () => showSlide(currentSlide - 1));
+            }
+            if (nextArrow) {
+                nextArrow.addEventListener('click', () => showSlide(currentSlide + 1));
+            }
 
             // Auto rotate slides every 5 seconds
             setInterval(() => showSlide(currentSlide + 1), 5000);

@@ -158,7 +158,7 @@ const translations = {
     // Projects Section
     "projects-title": {
         en: "Recent <span>Projects</span>",
-        ar: "<span>المشاريع</span> الحديثة"
+        ar: "أحدث <span>المشاريع</span>"
     },
     "view-all-btn": {
         en: "View All Projects",
@@ -439,28 +439,28 @@ const translations = {
         ar: "فايربيس"
     },
     "project-1-title": {
-        en: "Finance Tracker",
-        ar: "تتبع المالية"
+        en: "Booking Bus Ticket",
+        ar: "حجز تذاكر الحافلات"
     },
     "project-1-desc": {
-        en: "Personal finance management app with expense tracking, budget planning, and financial insights",
-        ar: "تطبيق إدارة المالية الشخصية مع تتبع النفقات وتخطيط الميزانية ورؤى مالية"
+        en: "A fully responsive e-commerce platform with modern UI and secure payment integration",
+        ar: "منصة تجارة إلكترونية متجاوبة بالكامل مع واجهة مستخدم حديثة وتكامل دفع آمن"
     },
     "project-2-title": {
-        en: "Fitness Companion",
-        ar: "رفيق اللياقة"
+        en: "Medical Appointment Booking",
+        ar: "حجز المواعيد الطبية"
     },
     "project-2-desc": {
-        en: "Workout planner and tracker with customizable fitness routines and progress analytics",
-        ar: "مخطط التمارين ومتتبع مع روتين لياقة قابل للتخصيص وتحليل التقدم"
+        en: "Customizable portfolio template for creative professionals with dark/light mode",
+        ar: "قالب محفظة قابل للتخصيص للمحترفين المبدعين مع وضع داكن/فاتح"
     },
     "project-3-title": {
-        en: "Social Connect",
-        ar: "التواصل الاجتماعي"
+        en: "Water Billing System",
+        ar: "نظام فواتير المياه"
     },
     "project-3-desc": {
-        en: "Community platform focusing on connecting people with similar interests and hobbies",
-        ar: "منصة مجتمعية تركز على ربط الأشخاص ذوي الاهتمامات والهوايات المماثلة"
+        en: "A productivity application with task tracking, reminders, and team collaboration features",
+        ar: "تطبيق إنتاجية مع ميزات تتبع المهام والتذكيرات والتعاون الجماعي"
     },
     "project-4-title": {
         en: "Shop Mobile",
