@@ -1,0 +1,676 @@
+/* Projects Page Specific Styles */
+
+/* Project theme variables for light/dark mode */
+:root {
+    /* Project-specific variables that align with main theme */
+    --project-overlay-bg: rgba(40, 41, 56, 0.6); /* Based on --secondary-color with opacity */
+    --project-modal-bg: rgba(40, 41, 56, 0.85); /* Based on --secondary-color with higher opacity */
+    --project-decoration-bg: rgba(94, 59, 238, 0.1); /* Based on --primary-color with low opacity */
+    --project-light-text: rgba(255, 255, 255, 0.8);
+}
+
+/* Dark theme overrides for project-specific variables */
+.dark-theme {
+    --project-overlay-bg: rgba(21, 22, 28, 0.7); /* Darker overlay for dark theme */
+    --project-modal-bg: rgba(21, 22, 28, 0.9); /* Darker modal bg for dark theme */
+    --project-decoration-bg: rgba(123, 92, 240, 0.15); /* Based on dark theme --primary-color */
+    --project-light-text: rgba(255, 255, 255, 0.7); /* Matches --footer-text in dark theme */
+}
+
+/* Make sure projects page inherits the same theme variables as the main page */
+.dark-theme .projects-hero {
+    background-color: var(--body-bg);
+}
+
+.dark-theme .projects-hero h1,
+.dark-theme .projects-hero p {
+    color: var(--secondary-color);
+}
+
+/* Projects Hero Section */
+.projects-hero {
+    background-color: var(--light-color);
+    padding: 180px 0 80px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    transition: background-color 0.3s ease;
+}
+
+.projects-hero::before,
+.projects-hero::after {
+    content: '';
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background-color: var(--blur-color);
+    z-index: 0;
+    filter: blur(70px);
+}
+
+.projects-hero::before {
+    top: -100px;
+    right: -100px;
+}
+
+.projects-hero::after {
+    bottom: -100px;
+    left: -100px;
+}
+
+.projects-hero h1 {
+    font-size: 3.5em;
+    font-weight: 700;
+    color: var(--secondary-color);
+    margin-bottom: 15px;
+    position: relative;
+    z-index: 1;
+    transition: color 0.3s ease;
+}
+
+.projects-hero h1 span {
+    color: var(--primary-color);
+    transition: color 0.3s ease;
+}
+
+.projects-hero p {
+    font-size: 1.2em;
+    color: var(--gray-color);
+    max-width: 700px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+    transition: color 0.3s ease;
+}
+
+/* Projects Filter - dark theme support */
+.dark-theme .projects-filter {
+    background-color: var(--header-bg);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.dark-theme .filter-btn {
+    background-color: var(--card-bg);
+    color: var(--secondary-color);
+    border-color: var(--border-color);
+}
+
+/* Mobile Projects Grid - dark theme support */
+.dark-theme .mobile-projects {
+    background-color: var(--body-bg);
+}
+
+.dark-theme .mobile-project-card {
+    background-color: var(--card-bg);
+    border-color: var(--border-color);
+}
+
+.dark-theme .mobile-project-info h3 {
+    color: var(--secondary-color);
+}
+
+.dark-theme .mobile-project-info p {
+    color: var(--gray-color);
+}
+
+.dark-theme .project-tags span {
+    background-color: var(--project-tag-bg);
+    color: var(--project-tag-color);
+}
+
+/* Project Modal - dark theme support */
+.dark-theme .modal-content {
+    background-color: var(--card-bg);
+}
+
+.dark-theme .modal-details h2,
+.dark-theme .modal-description h3,
+.dark-theme .modal-features h3,
+.dark-theme .modal-technologies h3 {
+    color: var(--secondary-color);
+}
+
+.dark-theme .modal-description p,
+.dark-theme .modal-features ul li {
+    color: var(--gray-color);
+}
+
+.dark-theme .tech-stack span {
+    background-color: var(--project-tag-bg);
+    color: var(--project-tag-color);
+}
+
+.dark-theme .main-btn.outline {
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+/* Ensure hover effects work in dark theme */
+.dark-theme .mobile-project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.dark-theme .filter-btn:hover,
+.dark-theme .filter-btn.active {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    transform: translateY(-3px);
+}
+
+/* Add a stronger shadow for cards in dark theme */
+.dark-theme .mobile-project-card {
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Ensure navigation active state works in dark theme */
+.dark-theme .navigation a.active {
+    color: var(--primary-color);
+}
+
+.dark-theme .navigation a.active::after {
+    width: 100%;
+}
+
+/* Projects Filter */
+.projects-filter {
+    background-color: var(--body-bg);
+    padding: 40px 0;
+    position: sticky;
+    top: 70px;
+    z-index: 100;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.filter-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.filter-btn {
+    padding: 10px 20px;
+    border-radius: 30px;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    color: var(--secondary-color);
+    font-size: 0.9em;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    transform: translateY(-3px);
+}
+
+/* Mobile Projects Grid */
+.mobile-projects {
+    padding: 60px 0 100px;
+    background-color: var(--body-bg);
+    transition: background-color 0.3s ease;
+}
+
+.mobile-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 40px;
+}
+
+.mobile-project-card {
+    background-color: var(--card-bg);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: var(--card-shadow);
+    transition: all 0.4s ease;
+    cursor: pointer;
+    border: 1px solid var(--border-color);
+}
+
+.mobile-project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.mobile-project-img {
+    position: relative;
+    height: 500px;
+    overflow: hidden;
+}
+
+.mobile-project-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.mobile-project-card:hover .mobile-project-img img {
+    transform: scale(1.05);
+}
+
+.project-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--project-overlay-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.mobile-project-card:hover .project-overlay {
+    opacity: 1;
+}
+
+.project-links {
+    display: flex;
+    gap: 15px;
+}
+
+.project-link {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2em;
+    transform: translateY(20px);
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.mobile-project-card:hover .project-link {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.project-link:hover {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+}
+
+.mobile-project-card:hover .project-link:nth-child(2) {
+    transition-delay: 0.1s;
+}
+
+.mobile-project-info {
+    padding: 25px;
+}
+
+.mobile-project-info h3 {
+    font-size: 1.3em;
+    font-weight: 600;
+    color: var(--secondary-color);
+    margin-bottom: 10px;
+    transition: color 0.3s ease;
+}
+
+.mobile-project-info p {
+    color: var(--gray-color);
+    margin-bottom: 15px;
+    font-size: 0.95em;
+    line-height: 1.6;
+    transition: color 0.3s ease;
+}
+
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.project-tags span {
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.8em;
+    font-weight: 500;
+    background-color: var(--project-tag-bg);
+    color: var(--project-tag-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Project Modal */
+.project-modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--project-modal-bg);
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.modal-content {
+    background-color: var(--card-bg);
+    margin: 50px auto;
+    width: 90%;
+    max-width: 1000px;
+    border-radius: 15px;
+    box-shadow: var(--card-shadow);
+    position: relative;
+    transition: background-color 0.3s ease;
+    animation: modalFadeIn 0.3s ease;
+}
+
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.close-modal {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 28px;
+    color: var(--gray-color);
+    cursor: pointer;
+    z-index: 10;
+    transition: color 0.3s ease;
+}
+
+.close-modal:hover {
+    color: var(--primary-color);
+}
+
+.modal-body {
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-image {
+    width: 100%;
+    border-radius: 15px 15px 0 0;
+    overflow: hidden;
+    height: 400px;
+}
+
+.modal-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.modal-details {
+    padding: 30px;
+}
+
+.modal-details h2 {
+    font-size: 2em;
+    font-weight: 700;
+    color: var(--secondary-color);
+    margin-bottom: 15px;
+    transition: color 0.3s ease;
+}
+
+.modal-tags {
+    margin-bottom: 25px;
+}
+
+.modal-description,
+.modal-features,
+.modal-technologies {
+    margin-bottom: 25px;
+}
+
+.modal-description h3,
+.modal-features h3,
+.modal-technologies h3 {
+    font-size: 1.2em;
+    font-weight: 600;
+    color: var(--secondary-color);
+    margin-bottom: 10px;
+    transition: color 0.3s ease;
+}
+
+.modal-description p {
+    color: var(--gray-color);
+    line-height: 1.7;
+    font-size: 0.95em;
+    transition: color 0.3s ease;
+}
+
+.modal-features ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.modal-features ul li {
+    position: relative;
+    padding-left: 25px;
+    margin-bottom: 10px;
+    color: var(--gray-color);
+    font-size: 0.95em;
+    transition: color 0.3s ease;
+}
+
+.modal-features ul li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+.tech-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.tech-stack span {
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.85em;
+    font-weight: 500;
+    background-color: var(--project-tag-bg);
+    color: var(--project-tag-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.modal-links {
+    display: flex;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.main-btn.outline {
+    background-color: transparent;
+    color: var(--primary-color);
+}
+
+.main-btn.outline:hover {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+}
+
+/* Contact CTA Section */
+.contact-cta {
+    background-color: var(--primary-color);
+    padding: 80px 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.contact-cta::before,
+.contact-cta::after {
+    content: '';
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background-color: var(--project-decoration-bg);
+    z-index: 0;
+}
+
+.contact-cta::before {
+    top: -150px;
+    right: -150px;
+}
+
+.contact-cta::after {
+    bottom: -150px;
+    left: -150px;
+}
+
+.contact-cta h2 {
+    font-size: 2.5em;
+    font-weight: 700;
+    color: var(--secondary-color);
+    margin-bottom: 15px;
+    position: relative;
+    z-index: 1;
+}
+
+.contact-cta p {
+    font-size: 1.1em;
+    color: var(--project-light-text);
+    max-width: 600px;
+    margin: 0 auto 30px;
+    position: relative;
+    z-index: 1;
+}
+
+.contact-cta .main-btn {
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    border-color: var(--secondary-color);
+    position: relative;
+    z-index: 1;
+}
+
+.contact-cta .main-btn:hover {
+    background-color: transparent;
+    color: var(--secondary-color);
+}
+
+/* Navigation active state */
+.navigation a.active {
+    color: var(--primary-color);
+}
+
+.navigation a.active::after {
+    width: 100%;
+}
+
+/* Responsive Styles */
+@media (min-width: 1024px) {
+    .modal-body {
+        flex-direction: row;
+    }
+
+    .modal-image {
+        width: 40%;
+        height: auto;
+        border-radius: 15px 0 0 15px;
+    }
+
+    .modal-details {
+        width: 60%;
+    }
+}
+
+@media (max-width: 1023px) {
+    .projects-hero h1 {
+        font-size: 3em;
+    }
+
+    .mobile-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 30px;
+    }
+
+    .mobile-project-img {
+        height: 400px;
+    }
+}
+
+@media (max-width: 768px) {
+    .projects-hero h1 {
+        font-size: 2.5em;
+    }
+
+    .projects-hero p {
+        font-size: 1em;
+    }
+
+    .filter-buttons {
+        gap: 10px;
+    }
+
+    .filter-btn {
+        padding: 8px 15px;
+        font-size: 0.85em;
+    }
+
+    .mobile-grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 20px;
+    }
+
+    .mobile-project-img {
+        height: 350px;
+    }
+
+    .modal-links {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 480px) {
+    .projects-hero {
+        padding: 130px 0 60px;
+    }
+
+    .projects-hero h1 {
+        font-size: 2em;
+    }
+
+    .projects-filter {
+        padding: 30px 0;
+    }
+
+    .mobile-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .modal-content {
+        width: 95%;
+        margin: 30px auto;
+    }
+
+    .modal-details {
+        padding: 20px;
+    }
+
+    .modal-details h2 {
+        font-size: 1.5em;
+    }
+
+    .contact-cta h2 {
+        font-size: 1.8em;
+    }
+} 

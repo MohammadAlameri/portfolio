@@ -13,138 +13,550 @@
 </head>
 
 <body>
+    <!-- Header -->
     <header>
-        <a href="#" class="logo">Mohammad<span>Alameri</span></a>
+        <div class="container">
+            <a href="#" class="logo">
+                <span>MA</span>
+            </a>
         <nav class="navigation">
-            <a href="#about">About</a>
+                <a href="#home">Home</a>
             <a href="#services">Services</a>
-            <a href="#projects">Projects</a>
+            <a href="projects.html">Projects</a>
+                <a href="#about">About</a>
             <a href="#contact">Contact</a>
-            <div class="theme-toggle" id="theme-toggle">
-                <i class="fas fa-sun"></i>
-                <i class="fas fa-moon"></i>
-            </div>
+                <div class="theme-toggle" id="theme-toggle">
+                    <i class="fas fa-sun"></i>
+                    <i class="fas fa-moon"></i>
+                </div>
         </nav>
-        <div class="menu-btn">
-            <i class="fas fa-bars"></i>
+            <div class="menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
         </div>
     </header>
 
-    <section class="main" id="about">
+    <!-- Hero Section -->
+    <section class="hero" id="home">
         <div class="container">
-            <div class="main-content">
-                <h4>Hello, I'm</h4>
-                <h1>Mohammad Alameri</h1>
-                <h2>Computer & Control Engineer</h2>
-                <p>I design and develop systems that help businesses solve complex problems and create exceptional user experiences.</p>
-                <div class="buttons">
-                    <a href="#projects" class="main-btn">View My Work</a>
-                    <a href="#contact" class="secondary-btn">Get In Touch</a>
+            <div class="hero-content">
+                <h1>Mohammad<br>Alameri</h1>
+                <p class="subtitle">UI Designer & Developer</p>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <h3>80+ Projects</h3>
+                    </div>
+                    <div class="stat-item">
+                        <h3>5+ Years Experience</h3>
+                    </div>
+                    <div class="stat-item">
+                        <h3>Front-End Developer</h3>
+                    </div>
                 </div>
             </div>
-            <div class="hero-shape"></div>
-        </div>
-    </section>
-
-    <section class="cards" id="services">
-        <div class="container">
-            <h2 class="section-title">My Services</h2>
-            <p class="section-subtitle">Here's what I can do for your business</p>
-            <div class="content">
-                <div class="card">
-                    <div class="icon"><i class="fas fa-code"></i></div>
-                    <div class="info">
-                        <h3>Web Development</h3>
-                        <p>Creating responsive and optimized web applications using modern technologies and frameworks.</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="icon"><i class="fas fa-mobile-alt"></i></div>
-                    <div class="info">
-                        <h3>Mobile App Design</h3>
-                        <p>Designing user-friendly mobile applications with intuitive interfaces and smooth interactions.</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="icon"><i class="fas fa-cogs"></i></div>
-                    <div class="info">
-                        <h3>System Engineering</h3>
-                        <p>Developing complex control systems and automation solutions for industrial applications.</p>
-                    </div>
-                </div>
+            <div class="hero-image">
+                <img src="images/4428861.jpg" alt="Hero Illustration">
+                <div class="blur-bg blob-1"></div>
+                <div class="blur-bg blob-2"></div>
             </div>
         </div>
     </section>
 
-    <section class="projects" id="projects">
+    <!-- Services Section -->
+    <section class="services" id="services">
         <div class="container">
-            <h2 class="section-title">Featured Projects</h2>
-            <p class="section-subtitle">A selection of my recent work</p>
+            <h2 class="section-title">My Awesome <span>Services</span></h2>
+            <div class="service-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <h3>Design</h3>
+                    <p>Creating beautiful and intuitive user interfaces with a focus on usability and aesthetics.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>Development</h3>
+                    <p>Building responsive and optimized web applications using modern technologies and frameworks.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Mobile</h3>
+                    <p>Developing user-friendly mobile applications with intuitive interfaces and smooth interactions.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3>SEO</h3>
+                    <p>Optimizing websites for search engines to improve visibility and drive organic traffic.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="skills-section">
+        <div class="container">
+            <div class="skills-content">
+                <div class="skills-image">
+                    <img src="images/19362653-Photoroom.png" alt="Developer Illustration">
+                </div>
+                <div class="skills-list">
+                    <h2 class="section-title">My Programming <span>Skills</span></h2>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <p>HTML & CSS</p>
+                            <p>95%</p>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 95%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <p>JavaScript</p>
+                            <p>90%</p>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 90%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <p>React.js</p>
+                            <p>85%</p>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <p>UI/UX Design</p>
+                            <p>80%</p>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 80%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <p>Node.js</p>
+                            <p>75%</p>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 75%"></div>
+                </div>
+            </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Hire Me Section -->
+    <section class="why-hire-section">
+        <div class="container">
+            <h2 class="section-title">Why Hire <span>Me</span></h2>
+            <p class="section-subtitle">These are some of the reasons why clients love my work and why you should hire me too</p>
+            
+            <div class="reasons-grid">
+                <div class="reason-card">
+                    <div class="reason-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>Optimized Coding</h3>
+                    <p>I write clean, efficient, and well-structured code that performs optimally across all platforms.</p>
+                </div>
+                <div class="reason-card">
+                    <div class="reason-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3>Problem Solver</h3>
+                    <p>I approach complex challenges with creative and thoughtful solutions, focusing on the best outcome.</p>
+                </div>
+                <div class="reason-card">
+                    <div class="reason-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <h3>Proven Success</h3>
+                    <p>My track record shows consistent delivery of high-quality projects that exceed client expectations.</p>
+                </div>
+                <div class="reason-card">
+                    <div class="reason-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <h3>Excellent Communication</h3>
+                    <p>I maintain clear and proactive communication throughout the entire development process.</p>
+                </div>
+                <div class="reason-card">
+                    <div class="reason-icon">
+                        <i class="fas fa-sync"></i>
+                    </div>
+                    <h3>Timely Revisions</h3>
+                    <p>I'm responsive to feedback and make necessary adjustments quickly to ensure client satisfaction.</p>
+                </div>
+                <div class="reason-card">
+                    <div class="reason-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3>Partnership for Growth</h3>
+                    <p>I work as a partner in your success, focusing on solutions that help your business grow.</p>
+                </div>
+            </div>
+            <div class="center-btn">
+                <a href="#contact" class="main-btn">Hire Me Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="projects-section" id="projects">
+        <div class="container">
+            <h2 class="section-title">Recent <span>Projects</span></h2>
             <div class="project-grid">
                 <div class="project-card">
                     <div class="project-img">
-                        <div class="overlay"></div>
+                        <img src="https://placehold.co/600x400" alt="Project 1">
                     </div>
                     <div class="project-info">
-                        <h3>Project One</h3>
-                        <p>Web Development</p>
-                        <a href="#" class="project-link">View Details <i class="fas fa-arrow-right"></i></a>
+                        <h3>E-Commerce Website</h3>
+                        <p>A fully responsive e-commerce platform with modern UI and secure payment integration</p>
+                        <div class="project-tags">
+                            <span>React</span>
+                            <span>Node.js</span>
+                            <span>MongoDB</span>
+                        </div>
                     </div>
                 </div>
                 <div class="project-card">
                     <div class="project-img">
-                        <div class="overlay"></div>
+                        <img src="https://placehold.co/600x400" alt="Project 2">
                     </div>
                     <div class="project-info">
-                        <h3>Project Two</h3>
-                        <p>Mobile App Design</p>
-                        <a href="#" class="project-link">View Details <i class="fas fa-arrow-right"></i></a>
+                        <h3>Portfolio Template</h3>
+                        <p>Customizable portfolio template for creative professionals with dark/light mode</p>
+                        <div class="project-tags">
+                            <span>HTML/CSS</span>
+                            <span>JavaScript</span>
+                            <span>Responsive</span>
+                        </div>
                     </div>
                 </div>
                 <div class="project-card">
                     <div class="project-img">
-                        <div class="overlay"></div>
+                        <img src="https://placehold.co/600x400" alt="Project 3">
                     </div>
                     <div class="project-info">
-                        <h3>Project Three</h3>
-                        <p>System Engineering</p>
-                        <a href="#" class="project-link">View Details <i class="fas fa-arrow-right"></i></a>
+                        <h3>Task Management App</h3>
+                        <p>A productivity application with task tracking, reminders, and team collaboration features</p>
+                        <div class="project-tags">
+                            <span>React</span>
+                            <span>Firebase</span>
+                            <span>Material UI</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="center-btn">
+                <a href="projects.html" class="main-btn">View All Projects</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technologies Section -->
+    <section class="technologies-section">
+        <div class="container">
+            <div class="tech-icons">
+                <div class="tech-icon" title="Dart"><i class="fas fa-code"></i><span class="tech-label">Dart</span></div>
+                <div class="tech-icon" title="Flutter"><i class="fas fa-mobile-alt"></i><span class="tech-label">Flutter</span></div>
+                <div class="tech-icon" title="Firebase"><i class="fab fa-firebase"></i><span class="tech-label">Firebase</span></div>
+                <div class="tech-icon" title="SQLite"><i class="fas fa-database"></i><span class="tech-label">SQLite</span></div>
+                <div class="tech-icon" title="GitHub"><i class="fab fa-github"></i><span class="tech-label">GitHub</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Additional Services Section -->
+    <section class="additional-services">
+        <div class="container">
+            <h2 class="section-title">My Best <span>UI Services</span></h2>
+            <p class="section-subtitle">From concept to execution, I provide comprehensive UI services to elevate your digital presence</p>
+            
+            <div class="services-grid">
+                <div class="service-item">
+                    <div class="service-icon">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <h3>UI/UX Design</h3>
+                    <p>Creating intuitive user interfaces that balance aesthetics with functionality</p>
+                </div>
+                <div class="service-item">
+                    <div class="service-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3>Responsive Web Design</h3>
+                    <p>Ensuring your website looks great and functions perfectly on any device</p>
+                </div>
+                <div class="service-item">
+                    <div class="service-icon">
+                        <i class="fas fa-mobile"></i>
+                    </div>
+                    <h3>Mobile App Design</h3>
+                    <p>Designing sleek and user-friendly interfaces for iOS and Android apps</p>
+                </div>
+                <div class="service-item">
+                    <div class="service-icon">
+                        <i class="fas fa-pen-fancy"></i>
+                    </div>
+                    <h3>Brand Identity</h3>
+                    <p>Developing cohesive visual elements that strengthen your brand presence</p>
+                </div>
+                <div class="service-item">
+                    <div class="service-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Analytics Setup</h3>
+                    <p>Implementing tracking systems to measure user behavior and interface effectiveness</p>
+                </div>
+                <div class="service-item">
+                    <div class="service-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3>Maintenance & Support</h3>
+                    <p>Ongoing assistance to keep your digital products current and optimized</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <h2 class="section-title">Frequently Asked <span>Questions</span></h2>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Can you design custom websites or other projects?</h3>
+                        <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, I specialize in creating custom designs tailored to each client's specific needs and preferences. Each project is approached as a unique opportunity to create something that perfectly matches your vision and objectives.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>How long does it take to complete your websites?</h3>
+                        <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Project timelines vary depending on complexity and scope. A typical website takes between 2-6 weeks from concept to launch. I'll provide a detailed timeline during our initial consultation based on your specific requirements.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>What types of websites do you build?</h3>
+                        <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>I build a wide range of websites including portfolios, business sites, e-commerce platforms, blogs, and web applications. My experience spans multiple industries and project types, allowing me to adapt to various requirements.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>What do you need to design and develop your websites?</h3>
+                        <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>To get started, I typically need your brand assets (logo, colors, fonts), content (text, images), project goals, target audience information, and any design preferences. Don't worry if you don't have everything ready - I can guide you through the process.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="contact" id="contact">
+    <!-- What Clients Say Section -->
+    <section class="client-say-section">
         <div class="container">
-            <h2 class="section-title">Get In Touch</h2>
-            <p class="section-subtitle">Let's discuss your next project</p>
-            <div class="contact-grid">
-                <div class="contact-info">
-                    <div class="contact-card">
-                        <div class="icon"><i class="fas fa-phone"></i></div>
-                        <div class="info">
-                            <h3>Phone</h3>
-                            <p>+967 775200846</p>
+            <h2 class="section-title">What <span>Clients Say</span></h2>
+            <p class="section-subtitle">Feedback from those who have experienced working with me</p>
+            
+            <div class="client-testimonials">
+                <div class="testimonial-slide active">
+                    <div class="client-testimonial">
+                        <div class="client-image">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="John Smith">
                         </div>
-                    </div>
-                    <div class="contact-card">
-                        <div class="icon"><i class="fas fa-envelope"></i></div>
-                        <div class="info">
-                            <h3>Email</h3>
-                            <p>mo.na.ali.almeri@gmail.com</p>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
                         </div>
-                    </div>
-                    <div class="contact-card">
-                        <div class="icon"><i class="fas fa-map-marker-alt"></i></div>
-                        <div class="info">
-                            <h3>Location</h3>
-                            <p>Yemen</p>
+                        <div class="client-quote">
+                            <p>"Mohammad's ability to translate complex requirements into elegant solutions is remarkable. The mobile app he developed for us exceeded our expectations and helped increase our customer engagement by 45%."</p>
+                        </div>
+                        <div class="client-info">
+                            <h4>John Smith</h4>
+                            <p>Product Manager at TechSolutions</p>
                         </div>
                     </div>
                 </div>
-                <div class="contact-form">
-                    <form>
+                <div class="testimonial-slide">
+                    <div class="client-testimonial">
+                        <div class="client-image">
+                            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Jessica Tan">
+                        </div>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <div class="client-quote">
+                            <p>"Working with Mohammad was a game-changer for our startup. He developed a cross-platform app using Flutter that works flawlessly on both iOS and Android. His attention to detail and commitment to quality are outstanding."</p>
+                        </div>
+                        <div class="client-info">
+                            <h4>Jessica Tan</h4>
+                            <p>Founder, InnovateMobile</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-slide">
+                    <div class="client-testimonial">
+                        <div class="client-image">
+                            <img src="https://randomuser.me/api/portraits/men/67.jpg" alt="Michael West">
+                        </div>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="client-quote">
+                            <p>"We hired Mohammad to rebuild our legacy database system with a modern SQLite implementation. Not only did he deliver on time, but the new system is 60% faster and much more reliable. Highly recommended!"</p>
+                        </div>
+                        <div class="client-info">
+                            <h4>Michael West</h4>
+                            <p>CTO, DataSystems Inc.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="testimonial-controls">
+                <div class="testimonial-dots">
+                    <span class="dot active" data-slide="0"></span>
+                    <span class="dot" data-slide="1"></span>
+                    <span class="dot" data-slide="2"></span>
+                </div>
+                <div class="testimonial-arrows">
+                    <button class="arrow prev-arrow"><i class="fas fa-chevron-left"></i></button>
+                    <button class="arrow next-arrow"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section class="experience-section" id="about">
+        <div class="container">
+            <h2 class="section-title">My <span>Experience</span></h2>
+            <p class="section-subtitle">A timeline of my professional journey and career highlights</p>
+            
+            <div class="experience-timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">2021 - Present</div>
+                    <div class="timeline-content">
+                        <h3>Senior Mobile Developer</h3>
+                        <h4>TechInnovate Solutions</h4>
+                        <p>Leading the development of cross-platform mobile applications using Flutter and Dart. Implementing Firebase for backend solutions and SQLite for local data storage. Mentoring junior developers and coordinating with design teams to ensure high-quality products.</p>
+                        <div class="timeline-tags">
+                            <span>Flutter</span>
+                            <span>Firebase</span>
+                            <span>Team Leadership</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">2019 - 2021</div>
+                    <div class="timeline-content">
+                        <h3>Mobile Application Developer</h3>
+                        <h4>Digital Creators Agency</h4>
+                        <p>Developed and maintained multiple client applications, focusing on responsive design and cross-platform compatibility. Utilized Flutter for rapid development and implemented complex database structures with SQLite.</p>
+                        <div class="timeline-tags">
+                            <span>Dart</span>
+                            <span>SQLite</span>
+                            <span>UI/UX Implementation</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">2017 - 2019</div>
+                    <div class="timeline-content">
+                        <h3>Junior Developer</h3>
+                        <h4>WebTech Solutions</h4>
+                        <p>Started as a front-end developer working with HTML, CSS, and JavaScript. Gradually transitioned to mobile development after participating in several cross-functional projects. Collaborated with senior developers to improve application architecture.</p>
+                        <div class="timeline-tags">
+                            <span>HTML/CSS</span>
+                            <span>JavaScript</span>
+                            <span>Responsive Design</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="contact-wrapper">
+                <div class="contact-info">
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Location</h3>
+                            <p>Yemen</p>
+                        </div>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Phone</h3>
+                            <p>+967 775200846</p>
+                        </div>
+                        <div class="contact-times">
+                            <p>Monday - Friday</p>
+                            <p>9:00 AM - 5:00 PM</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form-section">
+                    <h3>Let's Talk</h3>
+                    <form class="contact-form">
                         <div class="form-group">
                             <input type="text" placeholder="Your Name" required>
                         </div>
@@ -154,29 +566,48 @@
                         <div class="form-group">
                             <textarea placeholder="Your Message" required></textarea>
                         </div>
-                        <button type="submit" class="main-btn">Send Message</button>
+                        <button type="submit" class="submit-btn">Send</button>
                     </form>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <div class="footer-content">
+            <div class="footer-top">
                 <div class="footer-logo">
-                    <h3>Mohammad<span>Alameri</span></h3>
-                    <p>Engineer & Developer</p>
+                    <a href="#" class="logo">
+                        <span>MA</span>
+                    </a>
                 </div>
-                <div class="social-links">
-                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="#"><i class="fab fa-github"></i></a>
+                <div class="footer-links">
+                    <div class="footer-link-group">
+                        <h4>Menu</h4>
+                        <a href="#home">Home</a>
+                        <a href="#services">Services</a>
+                        <a href="projects.html">Projects</a>
+                        <a href="#about">About</a>
+                    </div>
+                    <div class="footer-link-group">
+                        <h4>Services</h4>
+                        <a href="#">Web Design</a>
+                        <a href="#">Development</a>
+                        <a href="#">UI/UX Design</a>
+                        <a href="#">Mobile Apps</a>
+                    </div>
+                </div>
+                <div class="footer-social">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
                     <a href="#"><i class="fab fa-twitter"></i></a>
                     <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-github"></i></a>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>Copyright &copy; 2025 <span>Mohammad Alameri</span>. All Rights Reserved.</p>
+                <p>&copy; 2025 <span>Mohammad Alameri</span>. All Rights Reserved.</p>
             </div>
         </div>
     </footer>
@@ -214,6 +645,69 @@
             } else {
                 localStorage.setItem('theme', 'light');
             }
+        });
+
+        // FAQ Accordion
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.parentElement;
+                const answer = question.nextElementSibling;
+                const icon = question.querySelector('.faq-toggle i');
+                
+                // Toggle the current question
+                item.classList.toggle('active');
+                
+                // Update icon
+                if (item.classList.contains('active')) {
+                    icon.classList.replace('fa-plus', 'fa-minus');
+                } else {
+                    icon.classList.replace('fa-minus', 'fa-plus');
+                }
+                
+                // Toggle visibility
+                if (item.classList.contains('active')) {
+                    answer.style.maxHeight = answer.scrollHeight + "px";
+                } else {
+                    answer.style.maxHeight = 0;
+                }
+            });
+        });
+
+        // Client Testimonials Carousel
+        document.addEventListener('DOMContentLoaded', function() {
+            const slides = document.querySelectorAll('.testimonial-slide');
+            const dots = document.querySelectorAll('.dot');
+            const prevArrow = document.querySelector('.prev-arrow');
+            const nextArrow = document.querySelector('.next-arrow');
+            let currentSlide = 0;
+
+            // Function to show a specific slide
+            function showSlide(n) {
+                // Remove active class from all slides and dots
+                slides.forEach(slide => slide.classList.remove('active'));
+                dots.forEach(dot => dot.classList.remove('active'));
+                
+                // Set current slide and handle wrapping
+                currentSlide = n;
+                if (currentSlide >= slides.length) currentSlide = 0;
+                if (currentSlide < 0) currentSlide = slides.length - 1;
+                
+                // Add active class to current slide and dot
+                slides[currentSlide].classList.add('active');
+                dots[currentSlide].classList.add('active');
+            }
+
+            // Event listeners for dot navigation
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => showSlide(index));
+            });
+
+            // Event listeners for arrow navigation
+            prevArrow.addEventListener('click', () => showSlide(currentSlide - 1));
+            nextArrow.addEventListener('click', () => showSlide(currentSlide + 1));
+
+            // Auto rotate slides every 5 seconds
+            setInterval(() => showSlide(currentSlide + 1), 5000);
         });
     </script>
 </body>
