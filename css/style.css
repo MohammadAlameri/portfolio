@@ -1,3 +1,4 @@
+/* General Styles */
 * {
   font-family: sans-serif;
   margin: 0;
@@ -5,6 +6,12 @@
   box-sizing: border-box;
   scroll-behavior: smooth;
 }
+
+body {
+  overflow-x: hidden;
+}
+
+/* Header */
 header {
   background-color: #f0f0f0;
   width: 100%;
@@ -13,238 +20,257 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 200px;
+  padding: 10px 5%;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
+
 .logo {
   text-decoration: none;
   color: #3a6cf4;
   text-transform: uppercase;
   font-weight: 700;
-  font-size: 1.8em;
+  font-size: 1.5em;
 }
+
+.navigation {
+  display: flex;
+  gap: 15px;
+}
+
 .navigation a {
   color: #3a6cf4;
   text-decoration: none;
-  font-size: 1, 1em;
+  font-size: 1em;
   font-weight: 500;
-  padding-left: 30px;
+  transition: 0.3s ease;
 }
+
 .navigation a:hover {
   color: #601cfc;
 }
+
+.menu-btn {
+  display: none;
+  color: #3a6cf4;
+  font-size: 1.5em;
+  cursor: pointer;
+}
+
+/* Sections */
 section {
-  padding: 100px 200px;
+  padding: 100px 5%;
 }
-.main {
-  width: 100%;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  background: url(../images/myself.png) no-repeat;
-  background-size: 500px;
-  background-position: 90% 20px;
-  background-attachment: fixed;
-  background-color: black;
-}
-.main h2 {
-  color: white;
-  font-size: 1.4em;
-  font-weight: 500;
-}
-.main h2 span {
-  display: inline-block;
-  color: #4e9eff;
-  font-size: 2em;
-  font-weight: 500;
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
-.main h3 {
-  color: white;
-  font-size: 1.3em;
-  font-weight: 700;
-  letter-spacing: 1px;
-  margin-top: 10px;
-  margin-bottom: 30px;
-}
-.main-btn {
-  color: white;
-  background-color: #3a6cf4;
-  text-decoration: none;
-  font-size: 1.1em;
-  font-weight: 600;
-  display: inline-block;
-  padding: 0.9375em;
-  letter-spacing: 1px;
-  border-radius: 15px;
-  margin-bottom: 40px;
-  transition: 0.7s ease;
-}
-.main-btn:hover {
-  background-color: #0a49f6;
-  transform: scale(1.1);
-}
-.social-icons a {
-  padding-right: 20px;
-}
+
 .title {
   display: flex;
   justify-content: center;
   color: #3a6cf4;
-  font-size: 2.2em;
-  font-weight: 600;
+  font-size: 2em;
+  font-weight: 800;
   margin-bottom: 30px;
 }
+
+/* Main Section */
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-color: black;
+  color: white;
+  min-height: 100vh;
+  padding: 100px 5%;
+}
+
+.main h2 {
+  font-size: 1.4em;
+  margin-bottom: 20px;
+}
+
+.main h2 span {
+  display: block;
+  color: #4e9eff;
+  font-size: 1.8em;
+  margin-top: 10px;
+}
+
+.main h3 {
+  font-size: 1.2em;
+  margin-bottom: 30px;
+}
+
+.main-btn {
+  display: inline-block;
+  background-color: #3a6cf4;
+  color: white;
+  padding: 12px 25px;
+  border-radius: 15px;
+  text-decoration: none;
+  font-weight: 600;
+  letter-spacing: 1px;
+  transition: 0.5s ease;
+}
+
+.main-btn:hover {
+  background-color: #0a49f6;
+  transform: scale(1.05);
+}
+
+/* Cards */
+.cards {
+  padding: 80px 5%;
+  background-color: #f5f5f5;
+}
+
 .content {
   display: flex;
-  justify-content: center;
-  flex-direction: row;
   flex-wrap: wrap;
-}
-.card {
-  background-color: white;
-  width: 16.25em;
-  height: 13.25em;
-  box-shadow: 0 5px 25px rgba(1 1 1 /50%);
-  border-radius: 10px;
-  padding: 25px;
-  margin: 15px;
-  transition: 0.7s ease;
-}
-.card:hover {
-  transform: scale(1.1);
-}
-.icon {
-  display: flex;
   justify-content: center;
+  gap: 20px;
 }
-.info {
+
+.card {
+  background: white;
+  width: 300px;
+  max-width: 100%;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 5px 25px rgba(1, 1, 1, 0.15);
+  transition: 0.5s ease;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.card .info {
   text-align: center;
 }
-.info h3 {
+
+.card .info h3 {
   color: #3a6cf4;
   font-size: 1.2em;
-  font-weight: 500;
-  margin: 10px;
-}
-.projects {
-  background-color: black;
-}
-.projects .content {
-  margin-top: 30px;
-}
-.project-card {
-  background-color: white;
-  border: 1px solid white;
-  min-height: 14em;
-  width: 23em;
-  border-radius: 10px;
-  overflow: hidden;
-  margin: 20px;
-  transition: 0.7s ease;
-}
-.project-card:hover {
-  transform: scale(1.1);
-}
-.project-image img {
-  width: 100%;
-}
-.project-card:hover .project-image {
-  opacity: 0.9;
-}
-.project-info {
-  padding: 1em;
-}
-.project-category {
-  font-size: 0, 8em;
-  color: black;
   margin-bottom: 10px;
 }
-.project-title {
-  display: flex;
-  justify-content: space-between;
-  text-transform: uppercase;
-  font-weight: 600;
-}
-.more-details {
-  text-decoration: none;
-  color: #3a6cf4;
-}
-.more-details:hover {
-  color: #601cfc;
-}
-.contant .info h3 {
-  font-size: 1.5em;
-  font-weight: 600;
-  color: black;
-}
-.contant .icon img {
-  width: 4.5em;
-}
-.contant.info {
-  text-align: center;
-}
+
+/* Footer */
 .footer {
   background-color: black;
   color: white;
-  padding: 1em;
-  display: flex;
-  justify-content: space-between;
+  text-align: center;
+  padding: 20px;
 }
-.footer-title {
-  font-size: 1.3em;
-  font-weight: 500;
-}
-.footer-title span {
+
+.footer span {
   color: #3a6cf4;
 }
-.footer .social-icons a img {
-  width: 20px;
-}
+
+/* Responsive Design */
 @media (max-width: 1023px) {
-  header {
-    padding: 12px 20px;
+  .card {
+    width: 45%;
   }
-  .navigation a {
-    padding-left: 10px;
+  
+  .main h2 {
+    font-size: 1.2em;
   }
+  
+  .main h2 span {
+    font-size: 1.6em;
+  }
+  
   .title {
     font-size: 1.8em;
   }
-  section {
-    padding: 80px 20px;
+}
+
+@media (max-width: 768px) {
+  header {
+    padding: 12px 5%;
   }
-  .main-content h2 {
+  
+  .menu-btn {
+    display: block;
+  }
+  
+  .navigation {
+    display: none;
+  }
+  
+  .navigation.active {
+    display: flex;
+    position: fixed;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    flex-direction: column;
+    background-color: #f0f0f0;
+    padding: 20px 0;
+    text-align: center;
+    box-shadow: 0 5px 25px rgba(1, 1, 1, 0.2);
+  }
+  
+  .navigation.active a {
+    padding: 15px 0;
+  }
+
+  .main {
+    padding-top: 120px;
+  }
+  
+  .main h2 {
+    font-size: 1.1em;
+  }
+  
+  .main h2 span {
+    font-size: 1.5em;
+  }
+  
+  .main h3 {
     font-size: 1em;
   }
-  .main-content h3 {
+  
+  .card {
+    width: 100%;
+  }
+  
+  .title {
     font-size: 1.6em;
   }
-  .content {
-    flex-direction: column;
-    align-items: center;
-  }
-}
-@media (max-width: 641px) {
-  body {
-    font-size: 12px;
-  }
-  .main-content h2 {
-    font-size: 0.8em;
-  }
-  .main-content h3 {
-    font-size: 1.4em;
-  }
-}
-@media (max-width: 300px) {
-  body {
-    font-size: 10px;
-  }
-  .main-content h2 {
-    font-size: 0.8em;
-  }
-  .main-content h3 {
-    font-size: 1.4em;
+  
+  section {
+    padding: 70px 5%;
   }
 }
 
+@media (max-width: 480px) {
+  .logo {
+    font-size: 1.2em;
+  }
+  
+  .main h2 {
+    font-size: 1em;
+  }
+  
+  .main h2 span {
+    font-size: 1.4em;
+  }
+  
+  .main-btn {
+    padding: 10px 20px;
+    font-size: 0.9em;
+  }
+  
+  .title {
+    font-size: 1.4em;
+  }
+  
+  section {
+    padding: 60px 5%;
+  }
+  
+  .card {
+    padding: 20px;
+  }
+}
