@@ -1950,6 +1950,8 @@ section {
     cursor: pointer;
     position: relative;
     overflow: hidden;
+    width: 70px; /* Set a fixed width for better control */
+    justify-content: space-between; /* Ensure even spacing */
 }
 
 .lang-option {
@@ -1959,6 +1961,8 @@ section {
     font-weight: 600;
     z-index: 1;
     transition: var(--transition);
+    text-align: center;
+    flex: 1; /* Make options take equal space */
 }
 
 [data-lang="en"].active,
@@ -1969,7 +1973,7 @@ section {
 .language-toggle::after {
     content: '';
     position: absolute;
-    width: 50%;
+    width: 35px; /* Fixed width for the indicator */
     height: 85%;
     background-color: var(--secondary-color);
     border-radius: 16px;
@@ -1979,9 +1983,7 @@ section {
 }
 
 .language-toggle.ar-active::after {
-    left: auto; /* Remove left positioning */
-    right: 3px; /* Position from the right instead */
-    transform: none; /* Remove the transform that was causing issues */
+    left: calc(100% - 38px); /* Position at the right side, accounting for padding */
 }
 
 /* Make the theme toggle responsive for RTL mode */
