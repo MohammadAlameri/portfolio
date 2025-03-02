@@ -4,15 +4,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Profile</title>
+    <title>Mohammad Alameri | Portfolio</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 
 <body>
     <header>
-        <a href="#" class="logo">Eng. Mohammad Alameri</a>
+        <a href="#" class="logo">Mohammad<span>Alameri</span></a>
         <nav class="navigation">
+            <a href="#about">About</a>
             <a href="#services">Services</a>
             <a href="#projects">Projects</a>
             <a href="#contact">Contact</a>
@@ -22,82 +26,155 @@
         </div>
     </header>
 
-    <section class="main">
-        <div>
-            <h2>Hello, I'm Mohammad Alameri<br><span>Engineer of Computer & Control Machine</span></h2>
-            <h3>I Build Life-Changing Systems</h3>
-            <a href="#projects" class="main-btn">View My Work</a>
+    <section class="main" id="about">
+        <div class="container">
+            <div class="main-content">
+                <h4>Hello, I'm</h4>
+                <h1>Mohammad Alameri</h1>
+                <h2>Computer & Control Engineer</h2>
+                <p>I design and develop systems that help businesses solve complex problems and create exceptional user experiences.</p>
+                <div class="buttons">
+                    <a href="#projects" class="main-btn">View My Work</a>
+                    <a href="#contact" class="secondary-btn">Get In Touch</a>
+                </div>
+            </div>
+            <div class="hero-shape"></div>
         </div>
     </section>
 
     <section class="cards" id="services">
-        <h2 class="title">Services</h2>
-        <div class="content">
-            <div class="card">
-                <div class="info">
-                    <h3>Script Writing</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+        <div class="container">
+            <h2 class="section-title">My Services</h2>
+            <p class="section-subtitle">Here's what I can do for your business</p>
+            <div class="content">
+                <div class="card">
+                    <div class="icon"><i class="fas fa-code"></i></div>
+                    <div class="info">
+                        <h3>Web Development</h3>
+                        <p>Creating responsive and optimized web applications using modern technologies and frameworks.</p>
+                    </div>
                 </div>
-            </div>
-            <div class="card">
-                <div class="info">
-                    <h3>Video Production</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                <div class="card">
+                    <div class="icon"><i class="fas fa-mobile-alt"></i></div>
+                    <div class="info">
+                        <h3>Mobile App Design</h3>
+                        <p>Designing user-friendly mobile applications with intuitive interfaces and smooth interactions.</p>
+                    </div>
                 </div>
-            </div>
-            <div class="card">
-                <div class="info">
-                    <h3>Curriculum Development</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="cards" id="projects">
-        <h2 class="title">Projects</h2>
-        <div class="content">
-            <div class="card">
-                <div class="info">
-                    <h3>Project 1</h3>
-                    <p>Script Writing & Video Production</p>
-                </div>
-            </div>
-            <div class="card">
-                <div class="info">
-                    <h3>Project 2</h3>
-                    <p>Script Writing & Video Production</p>
-                </div>
-            </div>
-            <div class="card">
-                <div class="info">
-                    <h3>Project 3</h3>
-                    <p>Script Writing & Video Production</p>
+                <div class="card">
+                    <div class="icon"><i class="fas fa-cogs"></i></div>
+                    <div class="info">
+                        <h3>System Engineering</h3>
+                        <p>Developing complex control systems and automation solutions for industrial applications.</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="cards" id="contact">
-        <h2 class="title">Let's Work Together</h2>
-        <div class="content">
-            <div class="card">
-                <div class="info">
-                    <h3>Phone</h3>
-                    <p>+967 775200846</p>
+    <section class="projects" id="projects">
+        <div class="container">
+            <h2 class="section-title">Featured Projects</h2>
+            <p class="section-subtitle">A selection of my recent work</p>
+            <div class="project-grid">
+                <div class="project-card">
+                    <div class="project-img">
+                        <div class="overlay"></div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Project One</h3>
+                        <p>Web Development</p>
+                        <a href="#" class="project-link">View Details <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img">
+                        <div class="overlay"></div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Project Two</h3>
+                        <p>Mobile App Design</p>
+                        <a href="#" class="project-link">View Details <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img">
+                        <div class="overlay"></div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Project Three</h3>
+                        <p>System Engineering</p>
+                        <a href="#" class="project-link">View Details <i class="fas fa-arrow-right"></i></a>
+                    </div>
                 </div>
             </div>
-            <div class="card">
-                <div class="info">
-                    <h3>Email</h3>
-                    <p>mo.na.ali.almeri@gmail.com</p>
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <p class="section-subtitle">Let's discuss your next project</p>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <div class="contact-card">
+                        <div class="icon"><i class="fas fa-phone"></i></div>
+                        <div class="info">
+                            <h3>Phone</h3>
+                            <p>+967 775200846</p>
+                        </div>
+                    </div>
+                    <div class="contact-card">
+                        <div class="icon"><i class="fas fa-envelope"></i></div>
+                        <div class="info">
+                            <h3>Email</h3>
+                            <p>mo.na.ali.almeri@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-card">
+                        <div class="icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <div class="info">
+                            <h3>Location</h3>
+                            <p>Yemen</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form>
+                        <div class="form-group">
+                            <input type="text" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea placeholder="Your Message" required></textarea>
+                        </div>
+                        <button type="submit" class="main-btn">Send Message</button>
+                    </form>
                 </div>
             </div>
         </div>
     </section>
 
     <footer class="footer">
-        <p>Copyright &copy; <span>Eng. Mohammad Alameri</span></p>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>Mohammad<span>Alameri</span></h3>
+                    <p>Engineer & Developer</p>
+                </div>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-github"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>Copyright &copy; 2025 <span>Mohammad Alameri</span>. All Rights Reserved.</p>
+            </div>
+        </div>
     </footer>
 
     <script>
