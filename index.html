@@ -666,7 +666,7 @@
 
         // FAQ Accordion
         document.querySelectorAll('.faq-question').forEach(question => {
-            question.addEventListener('click', function() {
+            question.addEventListener('click', () => {
                 const item = question.parentElement;
                 const answer = question.nextElementSibling;
                 const icon = question.querySelector('.faq-toggle i');
@@ -681,91 +681,67 @@
                     icon.classList.replace('fa-minus', 'fa-plus');
                 }
                 
-                // Set max-height for animation
+                // Toggle visibility
                 if (item.classList.contains('active')) {
-                    // Set a height that will definitely be taller than the content
                     answer.style.maxHeight = answer.scrollHeight + "px";
                 } else {
-                    answer.style.maxHeight = "0px";
+                    answer.style.maxHeight = "0";
                 }
             });
         });
 
-        // Make sure the plus/minus icon is properly clickable
+        // Make sure the plus/minus icon is properly clickable by adding a direct click handler
         document.querySelectorAll('.faq-toggle').forEach(toggle => {
-            toggle.addEventListener('click', function(event) {
-                // Prevent the event from bubbling up to the parent element
-                event.stopPropagation();
+            toggle.addEventListener('click', (e) => {
+                // Prevent the default behavior
+                e.stopPropagation();
                 
-                // Get the parent question element and trigger its click event
-                const question = this.closest('.faq-question');
-                if (question) {
-                    // Simulate a click on the question element
-                    const clickEvent = new Event('click', { bubbles: true });
-                    question.dispatchEvent(clickEvent);
-                }
+                // Manually trigger the parent question's click
+                toggle.parentElement.click();
             });
         });
 
         // Client Testimonials Carousel
-        const slides = document.querySelectorAll('.testimonial-slide');
-        const dots = document.querySelectorAll('.dot');
-        const prevArrow = document.querySelector('.prev-arrow');
-        const nextArrow = document.querySelector('.next-arrow');
-        let currentSlide = 0;
-        let slideInterval;
+        document.addEventListener('DOMContentLoaded', function() {
+            const slides = document.querySelectorAll('.testimonial-slide');
+            const dots = document.querySelectorAll('.dot');
+            const prevArrow = document.querySelector('.prev-arrow');
+            const nextArrow = document.querySelector('.next-arrow');
+            let currentSlide = 0;
 
-        // Function to show a specific slide
-        function showSlide(n) {
-            // Clear any existing interval to prevent timing issues
-            if (slideInterval) {
-                clearInterval(slideInterval);
+            // Function to show a specific slide
+            function showSlide(n) {
+                // Remove active class from all slides and dots
+                slides.forEach(slide => slide.classList.remove('active'));
+                dots.forEach(dot => dot.classList.remove('active'));
+                
+                // Set current slide and handle wrapping
+                currentSlide = n;
+                if (currentSlide >= slides.length) currentSlide = 0;
+                if (currentSlide < 0) currentSlide = slides.length - 1;
+                
+                // Add active class to current slide and dot
+                slides[currentSlide].classList.add('active');
+                dots[currentSlide].classList.add('active');
+            }
+
+            // Event listeners for dot navigation
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => showSlide(index));
+            });
+
+            // Event listeners for arrow navigation
+            if (prevArrow) {
+                prevArrow.addEventListener('click', () => showSlide(currentSlide - 1));
             }
             
-            // Remove active class from all slides and dots
-            slides.forEach(slide => slide.classList.remove('active'));
-            dots.forEach(dot => dot.classList.remove('active'));
-            
-            // Set current slide and handle wrapping
-            currentSlide = n;
-            if (currentSlide >= slides.length) currentSlide = 0;
-            if (currentSlide < 0) currentSlide = slides.length - 1;
-            
-            // Add active class to current slide and dot
-            slides[currentSlide].classList.add('active');
-            dots[currentSlide].classList.add('active');
-            
-            // Restart the auto rotation
-            startSlideShow();
-        }
+            if (nextArrow) {
+                nextArrow.addEventListener('click', () => showSlide(currentSlide + 1));
+            }
 
-        // Function to start automatic slideshow
-        function startSlideShow() {
-            slideInterval = setInterval(() => {
-                showSlide(currentSlide + 1);
-            }, 5000);
-        }
-
-        // Event listeners for dot navigation
-        dots.forEach((dot, index) => {
-            dot.addEventListener('click', () => showSlide(index));
+            // Auto rotate slides every 5 seconds
+            setInterval(() => showSlide(currentSlide + 1), 5000);
         });
-
-        // Event listeners for arrow navigation
-        if (prevArrow) {
-            prevArrow.addEventListener('click', () => {
-                showSlide(currentSlide - 1);
-            });
-        }
-        
-        if (nextArrow) {
-            nextArrow.addEventListener('click', () => {
-                showSlide(currentSlide + 1);
-            });
-        }
-
-        // Initialize the slideshow
-        startSlideShow();
         
         // Contact Form Submission Handler
         document.addEventListener('DOMContentLoaded', function() {
