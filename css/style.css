@@ -763,6 +763,13 @@ section {
   height: 24px;
   margin-left: 15px;
   flex-shrink: 0;
+  transition: all 0.3s ease;
+  border-radius: 50%;
+}
+
+.faq-toggle:hover {
+  background-color: var(--primary-light);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .faq-answer {

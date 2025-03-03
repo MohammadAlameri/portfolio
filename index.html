@@ -19,6 +19,31 @@
         [dir="rtl"] {
             font-family: 'Droid Arabic Kufi', 'Poppins', sans-serif;
         }
+
+        .faq-item {
+            border: 1px solid var(--faq-border);
+            margin-bottom: 10px; /* Adjust as needed */
+        }
+
+        .faq-question {
+            padding: 0px 20px; /* Adjust padding for spacing */
+            padding-top: 20px;
+            cursor: pointer;
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+            padding: 0 20px; /* Adjust padding for spacing */
+            padding-bottom: 20px;
+            padding-top: 5px;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: none; /* Allow full expansion */
+            padding: 10px 20px; /* Adjust padding for spacing */
+        }
     </style>
 </head>
 
@@ -608,110 +633,137 @@
     <script src="js/translations.js"></script>
     <script src="js/components.js"></script>
     <script>
-        // Mobile menu toggle
-        document.querySelector('.menu-btn').addEventListener('click', function() {
-            document.querySelector('.navigation').classList.toggle('active');
-        });
-        
-        // Close menu when clicking a navigation link on mobile
-        document.querySelectorAll('.navigation a').forEach(link => {
-            link.addEventListener('click', function() {
-                document.querySelector('.navigation').classList.remove('active');
-            });
-        });
-
-        // Smooth page transition
-        document.querySelectorAll('a[href="projects.html"]').forEach(link => {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                // Create and show the loader
-                const loader = document.createElement('div');
-                loader.className = 'page-transition-loader';
-                document.body.appendChild(loader);
-                
-                // Start fade out
-                setTimeout(() => {
-                    document.body.style.opacity = 0;
-                }, 150);
-                
-                // Navigate after transition completes
-                setTimeout(() => {
-                    window.location.href = this.getAttribute('href');
-                }, 450);
-            });
-        });
-
-        // Theme Toggle Functionality
-        const themeToggle = document.getElementById('theme-toggle');
-        
-        // Check for saved theme preference or use system preference
-        if (localStorage.getItem('theme') === 'dark' || 
-            (localStorage.getItem('theme') !== 'light' && 
-             window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-            document.body.classList.add('dark-theme');
-        }
-        
-        // Toggle theme when clicking the theme toggle button
-        themeToggle.addEventListener('click', function() {
-            document.body.classList.toggle('dark-theme');
-            
-            // Save theme preference to localStorage
-            if (document.body.classList.contains('dark-theme')) {
-                localStorage.setItem('theme', 'dark');
-            } else {
-                localStorage.setItem('theme', 'light');
-            }
-        });
-
-        // FAQ Accordion
-        document.querySelectorAll('.faq-question').forEach(question => {
-            question.addEventListener('click', function() {
-                const item = this.parentElement;
-                const answer = this.nextElementSibling;
-                const icon = this.querySelector('.faq-toggle i');
-                
-                // Toggle the current question
-                item.classList.toggle('active');
-                
-                // Update icon
-                if (item.classList.contains('active')) {
-                    icon.classList.replace('fa-plus', 'fa-minus');
-                    answer.style.maxHeight = answer.scrollHeight + "px";
-                } else {
-                    icon.classList.replace('fa-minus', 'fa-plus');
-                    answer.style.maxHeight = "0";
-                }
-            });
-        });
-
-        // Make sure the plus/minus icon is properly clickable by adding a direct click handler
-        document.querySelectorAll('.faq-toggle').forEach(toggle => {
-            toggle.addEventListener('click', function(e) {
-                e.stopPropagation(); // Prevent the event from bubbling up
-                const question = this.parentElement;
-                
-                // Directly toggle the FAQ item instead of triggering parent click
-                const item = question.parentElement;
-                const answer = question.nextElementSibling;
-                const icon = this.querySelector('i');
-                
-                // Toggle the current question
-                item.classList.toggle('active');
-                
-                // Update icon
-                if (item.classList.contains('active')) {
-                    icon.classList.replace('fa-plus', 'fa-minus');
-                    answer.style.maxHeight = answer.scrollHeight + "px";
-                } else {
-                    icon.classList.replace('fa-minus', 'fa-plus');
-                    answer.style.maxHeight = "0";
-                }
-            });
-        });
-
-        // Client Testimonials Carousel
         document.addEventListener('DOMContentLoaded', function() {
+            // Mobile menu toggle
+            const menuBtn = document.querySelector('.menu-btn');
+            if(menuBtn){ // Check if the button element is found.
+                menuBtn.addEventListener('click', function() {
+                    document.querySelector('.navigation').classList.toggle('active');
+                });
+            }
+            
+            // Close menu when clicking a navigation link on mobile
+            document.querySelectorAll('.navigation a').forEach(link => {
+                link.addEventListener('click', function() {
+                    document.querySelector('.navigation').classList.remove('active');
+                });
+            });
+
+            // Smooth page transition
+            document.querySelectorAll('a[href="projects.html"]').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Create and show the loader
+                    const loader = document.createElement('div');
+                    loader.className = 'page-transition-loader';
+                    document.body.appendChild(loader);
+                    
+                    // Start fade out
+                    setTimeout(() => {
+                        document.body.style.opacity = 0;
+                    }, 150);
+                    
+                    // Navigate after transition completes
+                    setTimeout(() => {
+                        window.location.href = this.getAttribute('href');
+                    }, 450);
+                });
+            });
+
+            // Theme Toggle Functionality
+            const themeToggle = document.getElementById('theme-toggle');
+            console.log(themeToggle); // This should log the element or null if not found
+            
+            // Check for saved theme preference or use system preference
+            if (localStorage.getItem('theme') === 'dark' || 
+                (localStorage.getItem('theme') !== 'light' && 
+                 window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                document.body.classList.add('dark-theme');
+            }
+            
+            // Toggle theme when clicking the theme toggle button
+            if (themeToggle) {
+                themeToggle.addEventListener('click', function() {
+                    document.body.classList.toggle('dark-theme');
+                    if (document.body.classList.contains('dark-theme')) {
+                        localStorage.setItem('theme', 'dark');
+                    } else {
+                        localStorage.setItem('theme', 'light');
+                    }
+                });
+            }
+
+            // FAQ Accordion
+            document.querySelectorAll('.faq-question').forEach(question => {
+                question.addEventListener('click', function() {
+                    const item = this.closest('.faq-item');
+                    const answer = item.querySelector('.faq-answer');
+                    const icon = this.querySelector('.faq-toggle i');
+
+                    // Optionally close other open FAQs
+                    document.querySelectorAll('.faq-item.active').forEach(activeItem => {
+                        if (activeItem !== item) {
+                            activeItem.classList.remove('active');
+                            activeItem.querySelector('.faq-answer').style.maxHeight = '0';
+                            activeItem.querySelector('.faq-toggle i').classList.replace('fa-minus', 'fa-plus');
+                        }
+                    });
+
+                    // Toggle the current question
+                    item.classList.toggle('active');
+
+                    // Update icon and answer
+                    if (item.classList.contains('active')) {
+                        icon.classList.replace('fa-plus', 'fa-minus');
+                        answer.style.maxHeight = answer.scrollHeight + 'px';
+                    } else {
+                        icon.classList.replace('fa-minus', 'fa-plus');
+                        answer.style.maxHeight = '0';
+                    }
+
+                    // Add console log to verify click event
+                    console.log('FAQ question clicked');
+                });
+            });
+
+            // Ensure the plus/minus icon is properly clickable by adding a direct click handler
+            // Adjust the selection of elements to ensure correct toggling
+            // Use closest to ensure correct parent selection
+            document.querySelectorAll('.faq-toggle').forEach(toggle => {
+                toggle.addEventListener('click', function(e) {
+                    e.stopPropagation(); // Prevent the event from bubbling up
+                    const item = this.closest('.faq-item');
+                    const answer = item.querySelector('.faq-answer');
+                    const icon = this.querySelector('i');
+
+                    // Optionally close other open FAQs
+                    document.querySelectorAll('.faq-item.active').forEach(activeItem => {
+                        if (activeItem !== item) {
+                            activeItem.classList.remove('active');
+                            activeItem.querySelector('.faq-answer').style.maxHeight = '0';
+                            activeItem.querySelector('.faq-toggle i').classList.replace('fa-minus', 'fa-plus');
+                        }
+                    });
+
+                    // Toggle the current question
+                    item.classList.toggle('active');
+
+                    // Update icon and answer
+                    if (item.classList.contains('active')) {
+                        icon.classList.replace('fa-plus', 'fa-minus');
+                        answer.style.maxHeight = answer.scrollHeight + 'px';
+                    } else {
+                        icon.classList.replace('fa-minus', 'fa-plus');
+                        answer.style.maxHeight = '0';
+                    }
+
+                    // Add console log to verify click event
+                    console.log('FAQ toggle clicked');
+                });
+            });
+
+            // Client Testimonials Carousel
             const slides = document.querySelectorAll('.testimonial-slide');
             const dots = document.querySelectorAll('.dot');
             const prevArrow = document.querySelector('.prev-arrow');
@@ -788,10 +840,8 @@
                     startSlideShow();
                 });
             }
-        });
-        
-        // Contact Form Submission Handler
-        document.addEventListener('DOMContentLoaded', function() {
+
+            // Contact Form Submission Handler
             const contactForm = document.querySelector('.contact-form');
             if (contactForm) {
                 contactForm.addEventListener('submit', function(e) {
@@ -804,6 +854,30 @@
                 });
             }
         });
+
+        function accessStorage() {
+            return new Promise((resolve, reject) => {
+                try {
+                    // Try to access storage.
+                    const data = localStorage.getItem('myData');
+                    resolve(data);
+                } catch (error) {
+                    // Rejection should contain error.
+                    reject(error);
+                }
+            });
+        }
+
+        // Handle the promise:
+        accessStorage()
+            .then((data) => {
+                // Data was successfully read.
+                console.log('Data:', data);
+            })
+            .catch((error) => {
+                // Error caught here.
+                console.error('Error accessing storage:', error);
+            });
     </script>
 </body>
 
