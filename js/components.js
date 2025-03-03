@@ -15,6 +15,8 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Set flag to indicate components.js has loaded
     window.componentsLoaded = true;
+    
+    initTestimonialSlider();
 });
 
 function loadHeader() {
@@ -146,4 +148,60 @@ function applyTheme() {
     } else {
         document.body.classList.remove('dark-theme');
     }
+}
+
+function initTestimonialSlider() {
+    const slides = document.querySelectorAll('.testimonial-slide');
+    const prevButton = document.querySelector('.prev-arrow');
+    const nextButton = document.querySelector('.next-arrow');
+    const dots = document.querySelectorAll('.dot');
+    let currentSlide = 0;
+    let slideInterval;
+
+    function showSlide(index) {
+        slides.forEach((slide, i) => {
+            slide.classList.toggle('active', i === index);
+        });
+        dots.forEach((dot, i) => {
+            dot.classList.toggle('active', i === index);
+        });
+    }
+
+    function nextSlide() {
+        currentSlide = (currentSlide + 1) % slides.length;
+        showSlide(currentSlide);
+    }
+
+    function prevSlide() {
+        currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+        showSlide(currentSlide);
+    }
+
+    function startSlideShow() {
+        slideInterval = setInterval(nextSlide, 3000); // Change slide every 3 seconds
+    }
+
+    function stopSlideShow() {
+        clearInterval(slideInterval);
+    }
+
+    prevButton.addEventListener('click', () => {
+        stopSlideShow();
+        prevSlide();
+        startSlideShow();
+    });
+
+    nextButton.addEventListener('click', () => {
+        stopSlideShow();
+        nextSlide();
+        startSlideShow();
+    });
+
+    slides.forEach(slide => {
+        slide.addEventListener('mouseenter', stopSlideShow);
+        slide.addEventListener('mouseleave', startSlideShow);
+    });
+
+    showSlide(currentSlide);
+    startSlideShow();
 } 
